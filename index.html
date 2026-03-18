@@ -10,15 +10,15 @@
 </head>
 <body>
 
-    <div class="glow-mesh"></div>
+    <div class="mesh-bg"></div>
 
-    <nav class="glass-nav">
-        <div class="nav-container">
-            <div class="logo">VISHAL SHINDE<span>.QA</span></div>
-            <div class="menu">
+    <nav class="navbar">
+        <div class="nav-wrapper">
+            <div class="logo">VISHAL<span>.QA</span></div>
+            <div class="nav-links">
                 <a href="#arsenal">Arsenal</a>
                 <a href="#credentials">Credentials</a>
-                <button class="cta-pill">Contact Engineer</button>
+                <button class="contact-btn">Initiate Contact</button>
             </div>
         </div>
     </nav>
@@ -26,70 +26,65 @@
     <main class="bento-grid">
         
         <section class="bento-item hero-card" data-aos="fade-up" data-tilt>
-            <div class="status-tag">● SYSTEMS OPERATIONAL | 2026_PRO</div>
-            <span class="designation">Software Test Engineer</span>
+            <div class="status-line">● CORE_SYSTEMS_ACTIVE // 2026</div>
+            <span class="role-badge">Software Test Engineer</span>
             <h1>Vishal Shinde</h1>
-            <p class="hero-text">Scaling quality for <span class="white">Fintech, Healthcare & LOS</span>. Architecting high-concurrency automation with <span class="highlight">Playwright, Selenium & AI</span>.</p>
-            <div class="hero-actions">
-                <button class="prime-btn" id="matchBtn">🧠 AI Resume Matcher</button>
-                <div class="social-row">
-                    <span>GitHub</span> / <span>LinkedIn</span>
-                </div>
+            <p class="description">Engineering high-concurrency quality frameworks for <span class="white">Fintech & Healthcare</span>. Specializing in <span class="highlight">Playwright, AI-Driven Testing & Cloud Infrastructure</span>.</p>
+            <div class="hero-footer">
+                <button class="matcher-btn" id="matchBtn">🧠 AI Resume Matcher</button>
+                <div class="social-pills">GitHub / LinkedIn</div>
             </div>
         </section>
 
-        <section id="arsenal" class="bento-item arsenal-card" data-aos="fade-up" data-aos-delay="100">
-            <h3>Technical Arsenal</h3>
-            <div class="tag-cloud">
-                <span class="tag playwright">Playwright</span>
-                <span class="tag">Selenium (Java)</span>
-                <span class="tag">Appium</span>
-                <span class="tag">TestNG</span>
-                <span class="tag">JMeter</span>
-                <span class="tag">Postman</span>
-                <span class="tag">Swagger</span>
-                <span class="tag">Azure DevOps</span>
-                <span class="tag">Maven</span>
-                <span class="tag">MySQL</span>
+        <section id="credentials" class="bento-item cert-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="card-header">
+                <h3>Elite Credentials</h3>
+                <span class="verify-badge">VERIFIED</span>
             </div>
-        </section>
-
-        <section id="credentials" class="bento-item cert-card" data-aos="fade-up" data-aos-delay="200">
-            <div class="mod-header">
-                <h3>Credentials</h3>
-                <span class="verify">VERIFIED</span>
-            </div>
-            <div class="cert-list">
-                <div class="c-item advanced">
+            <div class="cert-stack">
+                <div class="cert-row istqb-adv">
                     <strong>ISTQB® Advanced Level</strong>
                     <span>Technical Test Analyst</span>
                 </div>
-                <div class="c-item ai-gold">
+                <div class="cert-row ai-gold">
                     <strong>Salesforce AI Associate</strong>
-                    <span>AI-Driven Quality Assurance</span>
+                    <span>AI Automation Specialist</span>
                 </div>
-                <div class="c-item">
+                <div class="cert-row">
                     <strong>AccelQ Automation</strong>
                     <span>Certified Professional</span>
                 </div>
-                <div class="c-item">
+                <div class="cert-row">
                     <strong>AWS Partner Accreditation</strong>
                     <span>Technical Specialist</span>
                 </div>
-                <div class="c-item">
+                <div class="cert-row">
                     <strong>ISTQB® Foundation</strong>
                     <span>Certified Tester (CTFL)</span>
                 </div>
             </div>
         </section>
 
+        <section id="arsenal" class="bento-item arsenal-card" data-aos="fade-up" data-aos-delay="200">
+            <h3>Technical Arsenal</h3>
+            <div class="tag-container">
+                <span class="tag playwright">Playwright</span>
+                <span class="tag">Selenium (Java)</span>
+                <span class="tag">Appium</span>
+                <span class="tag">Postman</span>
+                <span class="tag">Swagger</span>
+                <span class="tag">Azure DevOps</span>
+                <span class="tag">JMeter</span>
+                <span class="tag">MySQL</span>
+            </div>
+        </section>
+
         <section class="bento-item cloud-card" data-aos="fade-up" data-aos-delay="300">
-            <h3>Infrastructure</h3>
-            <div class="floating-box">
-                <div class="orb o1">AWS</div>
-                <div class="orb o2">Azure Cloud</div>
-                <div class="orb o3">GCP</div>
-                   <div class="orb o3">Salesforce</div>
+            <h3>Cloud Ecosystem</h3>
+            <div class="orbit-container">
+                <div class="float-orb o1">AWS</div>
+                <div class="float-orb o2">Azure</div>
+                <div class="float-orb o3">GCP</div>
             </div>
         </section>
 
@@ -99,10 +94,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
     <script>
         AOS.init({ duration: 1000, once: true });
-        VanillaTilt.init(document.querySelectorAll("[data-tilt]"), { max: 5, speed: 400, glare: true, "max-glare": 0.2 });
+        VanillaTilt.init(document.querySelectorAll("[data-tilt]"), { max: 4, speed: 400, glare: true, "max-glare": 0.1 });
         
         document.getElementById('matchBtn').onclick = function() {
-            this.innerText = "Analyzing JD...";
+            this.innerText = "Analyzing Match...";
             setTimeout(() => {
                 alert("Vishal Shinde's Profile: 99.8% Match for Senior SDET roles.");
                 this.innerText = "🧠 AI Resume Matcher";
