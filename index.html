@@ -10,121 +10,78 @@
 </head>
 <body>
 
-    <div class="glow-bg"></div>
+    <div class="glow-canvas"></div>
 
-    <nav class="glass-nav">
-        <div class="logo">VISHAL<span>.QA</span></div>
+    <nav class="navbar">
+        <div class="logo">VISHAL SHINDE <span>.QA</span></div>
         <div class="nav-links">
             <a href="#about">Profile</a>
-            <a href="#expertise">Tools</a>
-            <a href="#certs">Certs</a>
-            <button class="contact-pill" onclick="window.location.href='mailto:your-email@example.com'">Hire Me</button>
+            <a href="#certs">Certifications</a>
+            <button class="hire-btn">Hire Me</button>
         </div>
     </nav>
 
-    <main class="bento-container">
+    <div class="bento-grid">
         
-        <section class="bento-item hero-box" data-aos="fade-up">
-            <div class="status-indicator">● Software Test Engineer</div>
+        <div class="bento-item hero-card" data-aos="fade-up">
+            <span class="badge">Software Test Engineer</span>
             <h1>Vishal Shinde</h1>
-            <h2 class="gradient-text">API & Automation Engineering Specialist</h2>
-            <p>Expert in full-stack QA lifecycle across <strong>Fintech, Healthcare, and E-commerce</strong>. I architect robust automation for Web, Mobile, Desktop, and complex API Integrations.</p>
+            <p class="subtitle">Architecting Quality for <span class="highlight">Fintech, Healthcare, & E-commerce</span>. Expert in Web, Mobile, & API Automation.</p>
             <div class="hero-actions">
-                <button class="primary-btn" id="analyzeBtn">🧠 AI Resume Matcher</button>
-                <div class="social-links">
-                    <span>GitHub</span> • <span>LinkedIn</span>
+                <button class="btn-primary" id="aiBtn">🧠 AI Resume Matcher</button>
+                <div class="socials">
+                    <a href="#">GitHub</a> • <a href="#">LinkedIn</a>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <section id="about" class="bento-item stats-box" data-aos="fade-up" data-aos-delay="100">
-            <h3>API Integration & Testing</h3>
-            <div class="api-tools">
-                <div class="api-item">
-                    <img src="https://img.icons8.com/external-tal-revivo-color-tal-revivo/24/external-postman-is-the-only-complete-api-development-platform-logo-color-tal-revivo.png" alt="Postman"/>
-                    <span>Postman</span>
-                </div>
-                <div class="api-item">
-                    <img src="https://img.icons8.com/color/24/swagger.png" alt="Swagger"/>
-                    <span>Swagger</span>
-                </div>
+        <div class="bento-item api-card" data-aos="fade-up" data-aos-delay="100">
+            <h3>API Integration</h3>
+            <div class="icon-flex">
+                <div class="i-box"><img src="https://img.icons8.com/color/48/postman-api.png" alt="Postman"> <span>Postman</span></div>
+                <div class="i-box"><img src="https://img.icons8.com/color/48/swagger.png" alt="Swagger"> <span>Swagger</span></div>
             </div>
-            <p style="font-size: 0.8rem; margin-top: 15px; color: var(--subtext);">Specializing in Functional, Regression, and End-to-End API validation.</p>
-        </section>
+            <p>E2E Functional & Regression validation.</p>
+        </div>
 
-        <section id="certs" class="bento-item certs-box" data-aos="fade-up" data-aos-delay="200">
-            <h3>Certifications</h3>
-            <div class="cert-list">
-                <div class="cert-item">
-                    <span class="cert-icon">🏆</span>
-                    <div>
-                        <p class="cert-name">ISTQB Advanced Level</p>
-                        <p class="cert-org">Technical Test Analyst</p>
-                    </div>
-                </div>
-                <div class="cert-item">
-                    <span class="cert-icon">🤖</span>
-                    <div>
-                        <p class="cert-name">Salesforce AI Associate</p>
-                        <p class="cert-org">AI Testing Certification</p>
-                    </div>
-                </div>
-                <div class="cert-item">
-                    <span class="cert-icon">☁️</span>
-                    <div>
-                        <p class="cert-name">AWS Partner Accreditation</p>
-                        <p class="cert-org">Technical Specialist</p>
-                    </div>
-                </div>
-                <div class="cert-item">
-                    <span class="cert-icon">⚙️</span>
-                    <div>
-                        <p class="cert-name">AccelQ Automation Pro</p>
-                    </div>
-                </div>
-                <div class="cert-item">
-                    <span class="cert-icon">🥇</span>
-                    <div>
-                        <p class="cert-name">ISTQB Foundation</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <div class="bento-item cert-card" data-aos="fade-up" data-aos-delay="200">
+            <h3>Elite Certifications</h3>
+            <ul class="cert-list">
+                <li><strong>ISTQB Advanced</strong> Technical Test Analyst</li>
+                <li><strong>Salesforce AI</strong> Associate</li>
+                <li><strong>AWS Partner</strong> Technical Accreditation</li>
+                <li><strong>AccelQ</strong> Automation Pro</li>
+                <li><strong>ISTQB</strong> Foundation Level</li>
+            </ul>
+        </div>
 
-        <section id="expertise" class="bento-item skills-box" data-aos="fade-up" data-aos-delay="300">
+        <div class="bento-item skills-card" data-aos="fade-up" data-aos-delay="300">
             <h3>Technical Arsenal</h3>
             <div class="pill-cloud">
-                <span class="pill">Selenium (Java)</span>
-                <span class="pill">Appium</span>
-                <span class="pill">TestNG</span>
-                <span class="pill">JMeter</span>
-                <span class="pill">Maven</span>
-                <span class="pill">JavaScript</span>
-                <span class="pill">Data Driven</span>
-                <span class="pill">MySQL</span>
-                <span class="pill">Ubuntu / Server</span>
+                <span>Selenium (Java)</span> <span>Appium</span> <span>TestNG</span> 
+                <span>JMeter</span> <span>JavaScript</span> <span>Maven</span>
+                <span>MySQL</span> <span>Ubuntu</span> <span>Data Driven</span>
             </div>
-        </section>
+        </div>
 
-        <section class="bento-item tools-box" data-aos="fade-up" data-aos-delay="400">
-            <h3>Management & CI/CD</h3>
-            <div class="tool-list-mini">
-                <div class="t-item"><strong>DevOps:</strong> Azure DevOps, GitHub</div>
-                <div class="t-item"><strong>Agile:</strong> Jira, Zephyr, Confluence</div>
-                <div class="t-item"><strong>Cloud:</strong> AWS, Azure, GCP</div>
+        <div class="bento-item tools-card" data-aos="fade-up" data-aos-delay="400">
+            <h3>Ops & Cloud</h3>
+            <div class="tools-list">
+                <div class="t-row"><strong>DevOps:</strong> Azure, GitHub</div>
+                <div class="t-row"><strong>Agile:</strong> Jira, Zephyr, Confluence</div>
+                <div class="t-row"><strong>Cloud:</strong> AWS, Azure, GCP</div>
             </div>
-        </section>
+        </div>
 
-    </main>
+    </div>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ duration: 1000, once: true });
-        
-        document.getElementById('analyzeBtn').addEventListener('click', function() {
+        document.getElementById('aiBtn').addEventListener('click', function() {
             this.innerText = "Analyzing JD...";
             setTimeout(() => {
-                alert("Vishal Shinde's profile is a 99.5% match! Key strengths: ISTQB Advanced, API Integration (Postman/Swagger), and Salesforce AI Associate.");
+                alert("Vishal Shinde's profile is a 99% match for Senior QA roles.");
                 this.innerText = "🧠 AI Resume Matcher";
             }, 2000);
         });
