@@ -1,28 +1,112 @@
-<div class="bento-item api-card" data-aos="fade-left">
-            <h3>Automation & API</h3>
-            <div class="api-container">
-                <div class="api-chip playwright-accent">
-                    <img src="https://img.icons8.com/color/24/javascript.png"> 
-                    <span>Playwright (TS/JS)</span>
-                </div>
-                <div class="api-chip"><img src="https://img.icons8.com/color/24/postman-api.png"> <span>Postman</span></div>
-                <div class="api-chip"><img src="https://img.icons8.com/color/24/swagger.png"> <span>Swagger</span></div>
-            </div>
-            <p class="small-text">E2E, Functional & Regression Architecture.</p>
-        </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vishal Shinde | SDET & Automation Architect</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
 
-        <div class="bento-item skills-card" data-aos="fade-right">
-            <h3>Technical Arsenal</h3>
-            <div class="pill-group">
-                <span class="p-bold">Playwright</span>
-                <span>Selenium (Java)</span>
-                <span>Appium</span>
-                <span>TestNG</span>
-                <span>JMeter</span>
-                <span>JavaScript</span>
-                <span>Maven</span>
-                <span>MySQL</span>
-                <span>Ubuntu</span>
-                <span>Data Driven Testing</span>
+    <div class="bg-gradient"></div>
+
+    <nav class="glass-nav">
+        <div class="nav-container">
+            <div class="logo">VISHAL<span>.SDET</span></div>
+            <div class="menu">
+                <a href="#stats">Metrics</a>
+                <a href="#arsenal">Arsenal</a>
+                <a href="#certs">Global Certs</a>
+                <button class="cta-pill">Initiate Contact</button>
             </div>
         </div>
+    </nav>
+
+    <main class="dashboard-grid">
+        
+        <section class="grid-item hero-module" data-aos="fade-up">
+            <div class="status-tag">● SYSTEMS OPERATIONAL | 2026_EDITION</div>
+            <h1>Vishal Shinde</h1>
+            <h2>Software Quality Architect <span class="dim">& Automation Lead</span></h2>
+            <p>Engineered high-concurrency testing frameworks for <strong>Fintech & Healthcare</strong>. Reducing MTTR by 40% through AI-driven automation.</p>
+            <div class="action-row">
+                <button class="prime-btn" id="resumeBtn">🧠 AI Resume Matcher</button>
+                <div class="social-links">
+                    <span>GitHub</span> / <span>LinkedIn</span> / <span>Portfolio.v2</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="stats" class="grid-item chart-module" data-aos="fade-up" data-aos-delay="100">
+            <div class="module-header">
+                <h3>Pipeline Health</h3>
+                <span class="live-blink">LIVE DATA</span>
+            </div>
+            <canvas id="qaMetricsChart"></canvas>
+        </section>
+
+        <section id="certs" class="grid-item cert-module" data-aos="fade-up" data-aos-delay="200">
+            <h3>Credentials</h3>
+            <div class="cert-item">
+                <span class="c-title">ISTQB® ADVANCED</span>
+                <span class="c-sub">Technical Test Analyst</span>
+            </div>
+            <div class="cert-item">
+                <span class="c-title">SALESFORCE AI</span>
+                <span class="c-sub">Certified Associate</span>
+            </div>
+            <div class="cert-item">
+                <span class="c-title">AWS CLOUD</span>
+                <span class="c-sub">Accredited Practitioner</span>
+            </div>
+        </section>
+
+        <section id="arsenal" class="grid-item arsenal-module" data-aos="fade-up" data-aos-delay="300">
+            <h3>Technical Arsenal</h3>
+            <div class="tag-cloud">
+                <span class="tag high-priority">Playwright</span>
+                <span class="tag">Selenium</span>
+                <span class="tag">Appium</span>
+                <span class="tag">Java</span>
+                <span class="tag">Azure DevOps</span>
+                <span class="tag">TestMu AI</span>
+                <span class="tag">JMeter</span>
+                <span class="tag">Postman</span>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+
+        // Chart.js - High End Configuration
+        const ctx = document.getElementById('qaMetricsChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Q1', 'Q2', 'Q3', 'Q4'],
+                datasets: [{
+                    label: 'Automation Coverage %',
+                    data: [45, 70, 85, 98],
+                    borderColor: '#2f81f7',
+                    backgroundColor: 'rgba(47, 129, 247, 0.1)',
+                    fill: true,
+                    tension: 0.4,
+                    pointRadius: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: { x: { display: false }, y: { display: false } }
+            }
+        });
+    </script>
+</body>
+</html>
