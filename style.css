@@ -28,12 +28,78 @@ body { background: var(--bg); color: white; font-family: 'Plus Jakarta Sans', sa
 .ai-gold { border-left: 4px solid var(--accent-purple); }
 
 /* Cloud Orbit */
-.orbit-container { height: 220px; position: relative; margin-top: 20px; }
-.float-orb { position: absolute; padding: 10px 20px; border-radius: 12px; border: 1px solid var(--border); font-size: 0.8rem; font-weight: 600; animation: float 6s infinite ease-in-out; background: rgba(255, 255, 255, 0.03); }
-.salesforce-orb { top: 60%; left: 10%; border-color: #00a1e0; color: #00a1e0; animation-delay: 3s; box-shadow: 0 0 15px rgba(0, 161, 224, 0.1); }
+/* Prevent Overlapping in Cloud Section */
+.cloud-card {
+    min-height: 320px; /* Forces enough height for all 4 orbs */
+    position: relative;
+    overflow: hidden;
+}
 
-@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+.orbit-container {
+    height: 250px; /* Defined height to contain absolute children */
+    position: relative;
+    width: 100%;
+    margin-top: 20px;
+}
 
+/* Specific Coordinates to prevent overlap */
+.float-orb {
+    position: absolute;
+    padding: 10px 20px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    font-size: 0.8rem;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.03);
+    animation: float 6s infinite ease-in-out;
+    white-space: nowrap; /* Prevents text wrapping */
+}
+
+/* Spread them out across the 4 corners/center */
+.aws-orb { 
+    top: 5%; 
+    left: 10%; 
+    border-color: #ff9900; 
+    color: #ff9900; 
+}
+
+.azure-orb { 
+    top: 35%; 
+    right: 15%; 
+    border-color: #0089d6; 
+    color: #0089d6; 
+    animation-delay: 1s; 
+}
+
+.gcp-orb { 
+    bottom: 30%; 
+    left: 20%; 
+    border-color: #4285f4; 
+    color: #4285f4; 
+    animation-delay: 2s; 
+}
+
+.salesforce-orb { 
+    bottom: 5%; 
+    right: 10%; 
+    border-color: #00a1e0; 
+    color: #00a1e0; 
+    animation-delay: 3s; 
+    font-weight: 800;
+    box-shadow: 0 0 15px rgba(0, 161, 224, 0.15);
+}
+
+/* Smooth Floating Animation */
+@keyframes float {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(-5px, -15px); }
+}
+
+/* Grid adjustment for mobile to prevent squishing */
+@media (max-width: 900px) {
+    .cloud-card { min-height: 400px; }
+    .orbit-container { height: 350px; }
+}
 /* Bento Structure */
 .bento-grid { max-width: 1200px; margin: 40px auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; padding: 0 20px; }
 .bento-item { background: var(--card); border: 1px solid var(--border); border-radius: 28px; padding: 30px; backdrop-filter: blur(20px); }
