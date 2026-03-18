@@ -1,141 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vishal Shinde | QA Automation Engineer</title>
-
-<link rel="stylesheet" href="style.css">
-<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css">
-<script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QA Architect | Playwright & AI Specialist</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
 </head>
-
 <body>
 
-<div id="particles-js"></div>
-<div class="cursor-glow"></div>
+    <div class="cursor-glow"></div>
 
-<header class="hero">
-<nav>
-<h2>Vishal</h2>
-<ul>
-<li><a href="#about">About</a></li>
-<li><a href="#skills">Skills</a></li>
-<li><a href="#projects">Projects</a></li>
-<li><a href="#timeline">Experience</a></li>
-<li><a href="#certifications">Certifications</a></li>
-</ul>
-<button onclick="toggleTheme()">🌙</button>
-</nav>
+    <nav>
+        <div class="logo">QA<span>STRAT</span></div>
+        <ul>
+            <li><a href="#dashboard">Analytics</a></li>
+            <li><a href="#ai-tools">AI Tools</a></li>
+            <li><a href="#projects">Frameworks</a></li>
+            <li><a href="#certs">Certs</a></li>
+        </ul>
+    </nav>
 
-<div class="hero-text animate fade-in">
-<h1>Vishal Shinde</h1>
-<p id="typing"></p>
-<button onclick="speakIntro()">🎤 Voice Intro</button>
-</div>
+    <header class="hero">
+        <div class="hero-content" data-aos="zoom-out">
+            <h1 class="glitch" data-text="SDET & QA ARCHITECT">SDET & QA ARCHITECT</h1>
+            <p>Architecting self-healing ecosystems with <span class="accent">Playwright</span> and <span class="accent">TestMu AI</span>. ISTQB & AWS Certified Engineer.</p>
+            <div class="hero-btns">
+                <button class="btn-ai" id="resumeBtn">🧠 AI Resume Analyzer</button>
+                <button class="btn-outline">🕹️ Test Simulator</button>
+            </div>
+        </div>
+    </header>
 
-<canvas id="heroParticles"></canvas>
-</header>
+    <section id="dashboard" class="container">
+        <h2 class="section-title" data-aos="fade-right">QA Command Center</h2>
+        <div class="stats-grid">
+            <div class="stat-card" data-aos="flip-up">
+                <h3>99.8%</h3>
+                <p>Automation Stability</p>
+                <div class="bar"><div class="fill" style="width: 99.8%"></div></div>
+            </div>
+            <div class="stat-card" data-aos="flip-up" data-aos-delay="100">
+                <h3>-40%</h3>
+                <p>Maintenance with TestMu AI</p>
+                <div class="bar"><div class="fill" style="width: 85%"></div></div>
+            </div>
+        </div>
+    </section>
 
-<section id="about" class="animate fade-in">
-<h2>About Me</h2>
-<p>Software Test Engineer with 4.5+ years experience in Selenium, Playwright, API Automation, Appium, and Java automation frameworks.</p>
-</section>
+    <section id="ai-tools" class="container">
+        <div class="ai-grid">
+            <div class="ai-card" data-aos="fade-right">
+                <div class="ai-icon">🔍</div>
+                <h3>AI Resume Matcher</h3>
+                <div class="drop-zone" id="dropZone">
+                    <span>Drop Job Description Here</span>
+                    <div class="loader" id="aiLoader"></div>
+                </div>
+                <div id="aiResult" class="hidden">
+                    <p class="match">98% Match Identified</p>
+                    <div class="tags-small"><span>+ Playwright</span> <span>+ AWS Cloud</span> <span>+ ISTQB</span></div>
+                </div>
+            </div>
 
-<section id="skills" class="animate slide-in-left">
-<h2>Automation Skills</h2>
-<canvas id="skillsCloud" width="800" height="500"></canvas>
-</section>
+            <div class="ai-card" data-aos="fade-left">
+                <div class="ai-icon">🐞</div>
+                <h3>Live Bug Tracker</h3>
+                <div class="bug-list">
+                    <div class="bug-item"><span class="status fixed">Fixed</span> <p>AWS S3 Integration Latency</p></div>
+                    <div class="bug-item"><span class="status progress">Testing</span> <p>Playwright Parallel Sharding</p></div>
+                    <div class="bug-item"><span class="status open">Open</span> <p>TestMu AI Self-Healing Logic</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section class="animate fade-in">
-<h2>3D Skill Galaxy</h2>
-<canvas id="skillGalaxy"></canvas>
-</section>
+    <section id="projects" class="container">
+        <h2 class="section-title">Automation Frameworks</h2>
+        <div class="project-grid">
+            <div class="project-card" data-tilt data-tilt-glare>
+                <h3>Playwright Engine</h3>
+                <p>Hybrid framework with TestMu AI integration for multi-layered validation.</p>
+                <div class="tags"><span>TypeScript</span> <span>CI/CD</span> <span>AI</span></div>
+            </div>
+            <div class="project-card" data-tilt data-tilt-glare>
+                <h3>AWS Cloud Grid</h3>
+                <p>Scalable Selenium Grid 4.0 infrastructure running on AWS Fargate.</p>
+                <div class="tags"><span>AWS</span> <span>Docker</span> <span>Java</span></div>
+            </div>
+        </div>
+    </section>
 
-<section id="projects" class="animate slide-in-right">
-<h2>Projects</h2>
-<div class="project-grid">
-<div class="project"> <h3>Selenium Automation Framework</h3> <p>POM automation framework.</p> </div>
-<div class="project"> <h3>API Automation</h3> <p>REST API testing automation.</p> </div>
-<div class="project"> <h3>Mobile Automation</h3> <p>Android testing with Appium.</p> </div>
-</div>
-</section>
+    <section id="certs" class="container">
+        <h2 class="section-title">Global Certifications</h2>
+        <div class="cert-flex">
+            <div class="cert-badge" data-aos="zoom-in">ISTQB Foundation</div>
+            <div class="cert-badge" data-aos="zoom-in" data-aos-delay="100">AWS Cloud Practitioner</div>
+            <div class="cert-badge" data-aos="zoom-in" data-aos-delay="200">Playwright Specialist</div>
+            <div class="cert-badge" data-aos="zoom-in" data-aos-delay="300">TestMu AI Certified</div>
+        </div>
+    </section>
 
-<section id="timeline" class="animate fade-in">
-<h2>Experience Timeline</h2>
-<div class="timeline">
-<div class="timeline-item"> <h3>2021</h3> <p>Started career as Software Test Engineer</p> </div>
-<div class="timeline-item"> <h3>2022</h3> <p>Built Selenium Automation Framework</p> </div>
-<div class="timeline-item"> <h3>2024</h3> <p>Worked on Playwright & API Automation</p> </div>
-<div class="timeline-item"> <h3>2025</h3> <p>Senior QA Automation Engineer</p> </div>
-</div>
-</section>
+    <footer>
+        <p>&copy; 2026 | Engineered for Quality</p>
+    </footer>
 
-<section class="animate fade-in">
-<h2>Automation Testing Simulator</h2>
-<button onclick="simulate('Login Test')">Run Login Test</button>
-<button onclick="simulate('Search Test')">Run Search Test</button>
-<button onclick="simulate('Checkout Test')">Run Checkout Test</button>
-<div id="simulator"></div>
-</section>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800 });
+        
+        // Mouse Glow
+        const glow = document.querySelector('.cursor-glow');
+        document.addEventListener('mousemove', (e) => {
+            glow.style.left = e.pageX + 'px';
+            glow.style.top = e.pageY + 'px';
+        });
 
-<section class="animate fade-in">
-<h2>QA Automation Dashboard</h2>
-<canvas id="qaChart"></canvas>
-</section>
+        // AI Analyzer Simulation
+        const dropZone = document.getElementById('dropZone');
+        const loader = document.getElementById('aiLoader');
+        const result = document.getElementById('aiResult');
 
-<section class="animate fade-in">
-<h2>Bug Tracker</h2>
-<input id="bugInput" placeholder="Enter bug">
-<button onclick="addBug()">Add Bug</button>
-<ul id="bugList"></ul>
-</section>
-
-<section class="animate fade-in">
-<h2>AI Resume Analyzer</h2>
-<textarea id="jd" placeholder="Paste Job Description"></textarea>
-<button onclick="analyzeJD()">Analyze Match</button>
-<div id="jdResult"></div>
-</section>
-
-<section class="animate fade-in">
-<h2>GitHub Projects</h2>
-<div id="repos" class="project-grid"></div>
-</section>
-
-<section class="animate fade-in">
-<h2>GitHub Stats</h2>
-<img src="https://github-readme-stats.vercel.app/api?username=shindevishal1443&show_icons=true">
-</section>
-
-<section class="animate fade-in">
-<h2>Project Map</h2>
-<div id="map"></div>
-</section>
-
-<section id="certifications" class="animate fade-in">
-<h2>Certifications</h2>
-<div class="cert-grid">
-<div class="cert">ISTQB</div>
-<div class="cert">AWS Cloud Practitioner</div>
-<div class="cert">Playwright 101</div>
-</div>
-</section>
-
-<section class="animate slide-in-left">
-<h2>Interactive Automation Framework</h2>
-<canvas id="framework3D"></canvas>
-<button onclick="simulate('Login Test')">Run Live Selenium Test Demo</button>
-</section>
-
-<footer>© 2026 Vishal Shinde</footer>
-
-<script src="script.js"></script>
+        dropZone.addEventListener('click', () => {
+            dropZone.querySelector('span').innerText = "Analyzing Skills...";
+            loader.style.display = 'block';
+            setTimeout(() => {
+                loader.style.display = 'none';
+                dropZone.style.display = 'none';
+                result.classList.remove('hidden');
+            }, 2500);
+        });
+    </script>
 </body>
 </html>
