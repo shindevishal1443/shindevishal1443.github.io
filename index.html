@@ -1,23 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vishal Shinde | QA Engineer</title>
-<link rel="stylesheet" href="style.css">
+
+<title>Vishal Shinde | QA Automation Engineer</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:#f7f9fc;
+color:#111;
+transition:0.4s;
+}
+
+.dark{
+background:#0f172a;
+color:white;
+}
+
+/* NAV */
+
+nav{
+position:fixed;
+width:100%;
+display:flex;
+justify-content:space-between;
+padding:20px 10%;
+backdrop-filter:blur(10px);
+background:rgba(255,255,255,0.6);
+z-index:1000;
+}
+
+.dark nav{
+background:rgba(0,0,0,0.6);
+}
+
+nav ul{
+display:flex;
+list-style:none;
+}
+
+nav li{
+margin-left:25px;
+}
+
+nav a{
+text-decoration:none;
+color:inherit;
+font-weight:500;
+}
+
+/* HERO */
+
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+background:linear-gradient(135deg,#3b82f6,#9333ea);
+color:white;
+}
+
+.hero h1{
+font-size:60px;
+}
+
+.typing{
+font-size:22px;
+margin-top:10px;
+opacity:0.9;
+}
+
+.btn{
+margin-top:30px;
+padding:14px 28px;
+border-radius:8px;
+background:white;
+color:black;
+text-decoration:none;
+font-weight:bold;
+}
+
+/* SECTIONS */
+
+section{
+padding:100px 10%;
+max-width:1100px;
+margin:auto;
+}
+
+h2{
+text-align:center;
+margin-bottom:50px;
+}
+
+/* SKILLS */
+
+.skill{
+margin-bottom:15px;
+}
+
+.bar{
+height:10px;
+background:#ddd;
+border-radius:10px;
+}
+
+.bar span{
+display:block;
+height:10px;
+background:#3b82f6;
+border-radius:10px;
+}
+
+/* PROJECT GRID */
+
+.projects{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:25px;
+}
+
+.card{
+background:white;
+padding:25px;
+border-radius:12px;
+box-shadow:0 10px 20px rgba(0,0,0,0.1);
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+}
+
+.dark .card{
+background:#1e293b;
+}
+
+/* EXPERIENCE */
+
+.exp{
+padding:25px;
+margin-bottom:20px;
+border-left:4px solid #3b82f6;
+background:white;
+}
+
+.dark .exp{
+background:#1e293b;
+}
+
+/* CONTACT */
+
+.contact{
+text-align:center;
+}
+
+/* FOOTER */
+
+footer{
+text-align:center;
+padding:25px;
+background:#111827;
+color:white;
+margin-top:50px;
+}
+
+</style>
+
 </head>
 
 <body>
 
-<header class="hero">
-
 <nav>
-<h2 class="logo">Vishal</h2>
+
+<h3>Vishal</h3>
 
 <ul>
 <li><a href="#about">About</a></li>
 <li><a href="#skills">Skills</a></li>
 <li><a href="#projects">Projects</a></li>
+<li><a href="#experience">Experience</a></li>
 <li><a href="#contact">Contact</a></li>
 </ul>
 
@@ -25,25 +202,24 @@
 
 </nav>
 
-<div class="hero-text">
+<div class="hero">
 
-<h1>Hi, I'm Vishal Shinde</h1>
-<p>Software Test Engineer | Automation Tester</p>
+<h1>Vishal Shinde</h1>
 
-<a href="#contact" class="btn">Hire Me</a>
+<p class="typing" id="typing"></p>
+
+<a href="resume.pdf" class="btn">Download Resume</a>
 
 </div>
-
-</header>
 
 <section id="about">
 
 <h2>About Me</h2>
 
 <p>
-QA Engineer with 4.5+ years of experience in software testing including
-manual testing, automation testing, API testing, and mobile testing.
-Experienced with Selenium, Playwright, Appium, and Postman.
+Software Test Engineer with 4.5+ years experience in Manual and Automation Testing.
+Specialized in Selenium, Playwright, Appium, and API testing. Passionate about improving
+software quality through robust automation frameworks.
 </p>
 
 </section>
@@ -52,72 +228,111 @@ Experienced with Selenium, Playwright, Appium, and Postman.
 
 <h2>Skills</h2>
 
-<div class="skill">
-
-<p>Selenium</p>
-<div class="bar"><span style="width:90%"></span></div>
-
-<p>Playwright</p>
-<div class="bar"><span style="width:80%"></span></div>
-
-<p>API Testing</p>
-<div class="bar"><span style="width:85%"></span></div>
-
-<p>Manual Testing</p>
+<div class="skill">Manual Testing</div>
 <div class="bar"><span style="width:95%"></span></div>
 
-</div>
+<div class="skill">Selenium Automation</div>
+<div class="bar"><span style="width:90%"></span></div>
+
+<div class="skill">Playwright</div>
+<div class="bar"><span style="width:85%"></span></div>
+
+<div class="skill">API Testing</div>
+<div class="bar"><span style="width:85%"></span></div>
+
+<div class="skill">Mobile Testing (Appium)</div>
+<div class="bar"><span style="width:75%"></span></div>
 
 </section>
 
 <section id="projects">
 
-<h2>Projects</h2>
+<h2>QA Automation Projects</h2>
 
-<div class="project-grid">
+<div class="projects">
 
-<div class="project">
+<div class="card">
 <h3>Selenium Automation Framework</h3>
-<p>Developed test automation framework using Selenium WebDriver and Java.</p>
+<p>
+Developed test automation framework using Selenium WebDriver + Java
+with Page Object Model.
+</p>
 </div>
 
-<div class="project">
+<div class="card">
 <h3>API Automation Testing</h3>
-<p>Automated REST API tests using Postman collections.</p>
+<p>
+Automated REST API tests using Postman collections
+and validation scripts.
+</p>
 </div>
 
-<div class="project">
+<div class="card">
 <h3>Mobile Automation</h3>
-<p>Android mobile test automation using Appium.</p>
+<p>
+Automated Android application testing using Appium framework.
+</p>
 </div>
 
 </div>
 
 </section>
 
-<section id="contact">
+<section id="experience">
+
+<h2>Experience</h2>
+
+<div class="exp">
+<h3>Software Test Engineer</h3>
+<p>
+4.5+ years of experience in functional testing,
+regression testing, API testing and automation testing.
+</p>
+</div>
+
+</section>
+
+<section id="contact" class="contact">
 
 <h2>Contact</h2>
 
 <p>Email: your-email@gmail.com</p>
+
 <p>LinkedIn: linkedin.com/in/yourprofile</p>
+
 <p>GitHub: github.com/yourgithub</p>
 
 </section>
 
 <footer>
 
-<p>© 2026 Vishal Shinde</p>
+© 2026 Vishal Shinde
 
 </footer>
 
 <script>
 
+/* DARK MODE */
+
 function toggleTheme(){
-
 document.body.classList.toggle("dark")
-
 }
+
+/* TYPING ANIMATION */
+
+const text="QA Automation Engineer | Selenium | Playwright | API Testing"
+
+let i=0
+
+function type(){
+if(i<text.length){
+document.getElementById("typing").innerHTML+=text.charAt(i)
+i++
+setTimeout(type,60)
+}
+}
+
+type()
 
 </script>
 
