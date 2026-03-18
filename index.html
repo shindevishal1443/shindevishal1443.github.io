@@ -1,90 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vishal Shinde | Software Test Engineer</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-</head>
-<body>
-
-    <div class="glow-canvas"></div>
-
-    <nav class="navbar">
-        <div class="logo">VISHAL SHINDE <span>.QA</span></div>
-        <div class="nav-links">
-            <a href="#about">Profile</a>
-            <a href="#certs">Certifications</a>
-            <button class="hire-btn">Hire Me</button>
-        </div>
-    </nav>
-
-    <div class="bento-grid">
-        
-        <div class="bento-item hero-card" data-aos="fade-up">
-            <span class="badge">Software Test Engineer</span>
-            <h1>Vishal Shinde</h1>
-            <p class="subtitle">Architecting Quality for <span class="highlight">Fintech, Healthcare, & E-commerce</span>. Expert in Web, Mobile, & API Automation.</p>
-            <div class="hero-actions">
-                <button class="btn-primary" id="aiBtn">🧠 AI Resume Matcher</button>
-                <div class="socials">
-                    <a href="#">GitHub</a> • <a href="#">LinkedIn</a>
+<div class="bento-item api-card" data-aos="fade-left">
+            <h3>Automation & API</h3>
+            <div class="api-container">
+                <div class="api-chip playwright-accent">
+                    <img src="https://img.icons8.com/color/24/javascript.png"> 
+                    <span>Playwright (TS/JS)</span>
                 </div>
+                <div class="api-chip"><img src="https://img.icons8.com/color/24/postman-api.png"> <span>Postman</span></div>
+                <div class="api-chip"><img src="https://img.icons8.com/color/24/swagger.png"> <span>Swagger</span></div>
             </div>
+            <p class="small-text">E2E, Functional & Regression Architecture.</p>
         </div>
 
-        <div class="bento-item api-card" data-aos="fade-up" data-aos-delay="100">
-            <h3>API Integration</h3>
-            <div class="icon-flex">
-                <div class="i-box"><img src="https://img.icons8.com/color/48/postman-api.png" alt="Postman"> <span>Postman</span></div>
-                <div class="i-box"><img src="https://img.icons8.com/color/48/swagger.png" alt="Swagger"> <span>Swagger</span></div>
-            </div>
-            <p>E2E Functional & Regression validation.</p>
-        </div>
-
-        <div class="bento-item cert-card" data-aos="fade-up" data-aos-delay="200">
-            <h3>Elite Certifications</h3>
-            <ul class="cert-list">
-                <li><strong>ISTQB Advanced</strong> Technical Test Analyst</li>
-                <li><strong>Salesforce AI</strong> Associate</li>
-                <li><strong>AWS Partner</strong> Technical Accreditation</li>
-                <li><strong>AccelQ</strong> Automation Pro</li>
-                <li><strong>ISTQB</strong> Foundation Level</li>
-            </ul>
-        </div>
-
-        <div class="bento-item skills-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="bento-item skills-card" data-aos="fade-right">
             <h3>Technical Arsenal</h3>
-            <div class="pill-cloud">
-                <span>Selenium (Java)</span> <span>Appium</span> <span>TestNG</span> 
-                <span>JMeter</span> <span>JavaScript</span> <span>Maven</span>
-                <span>MySQL</span> <span>Ubuntu</span> <span>Data Driven</span>
+            <div class="pill-group">
+                <span class="p-bold">Playwright</span>
+                <span>Selenium (Java)</span>
+                <span>Appium</span>
+                <span>TestNG</span>
+                <span>JMeter</span>
+                <span>JavaScript</span>
+                <span>Maven</span>
+                <span>MySQL</span>
+                <span>Ubuntu</span>
+                <span>Data Driven Testing</span>
             </div>
         </div>
-
-        <div class="bento-item tools-card" data-aos="fade-up" data-aos-delay="400">
-            <h3>Ops & Cloud</h3>
-            <div class="tools-list">
-                <div class="t-row"><strong>DevOps:</strong> Azure, GitHub</div>
-                <div class="t-row"><strong>Agile:</strong> Jira, Zephyr, Confluence</div>
-                <div class="t-row"><strong>Cloud:</strong> AWS, Azure, GCP</div>
-            </div>
-        </div>
-
-    </div>
-
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({ duration: 1000, once: true });
-        document.getElementById('aiBtn').addEventListener('click', function() {
-            this.innerText = "Analyzing JD...";
-            setTimeout(() => {
-                alert("Vishal Shinde's profile is a 99% match for Senior QA roles.");
-                this.innerText = "🧠 AI Resume Matcher";
-            }, 2000);
-        });
-    </script>
-</body>
-</html>
