@@ -14,7 +14,7 @@
 
     <nav class="navbar">
         <div class="nav-wrapper">
-            <div class="logo">VISHAL<span>.QA</span></div>
+            <div class="logo">VISHAL SHINDE <span>.QA</span></div>
             <div class="nav-links">
                 <a href="#arsenal">Arsenal</a>
                 <a href="#credentials">Credentials</a>
@@ -29,7 +29,7 @@
             <div class="status-line">● CORE_SYSTEMS_ACTIVE // 2026</div>
             <span class="role-badge">Software Test Engineer</span>
             <h1>Vishal Shinde</h1>
-            <p class="description">Engineering high-concurrency quality frameworks for <span class="white">Fintech & Healthcare</span>. Specializing in <span class="highlight">Playwright, AI-Driven Testing & Cloud Infrastructure</span>.</p>
+            <p class="description">Engineering high-concurrency quality frameworks for <span class="white">Fintech & Healthcare</span>. Specializing in <span class="highlight-playwright">Playwright</span>, <span class="highlight-ai">AI-Driven Testing</span> & <span class="white">Cloud Infrastructure</span>.</p>
             <div class="hero-footer">
                 <button class="matcher-btn" id="matchBtn">🧠 AI Resume Matcher</button>
                 <div class="social-pills">GitHub / LinkedIn</div>
@@ -50,6 +50,14 @@
                     <strong>Salesforce AI Associate</strong>
                     <span>AI Automation Specialist</span>
                 </div>
+                <div class="cert-row p101">
+                    <strong>Playwright 101</strong>
+                    <span>Automation Certification</span>
+                </div>
+                <div class="cert-row s101">
+                    <strong>Selenium 101</strong>
+                    <span>Automation Certification</span>
+                </div>
                 <div class="cert-row">
                     <strong>AccelQ Automation</strong>
                     <span>Certified Professional</span>
@@ -68,8 +76,8 @@
         <section id="arsenal" class="bento-item arsenal-card" data-aos="fade-up" data-aos-delay="200">
             <h3>Technical Arsenal</h3>
             <div class="tag-container">
-                <span class="tag playwright">Playwright</span>
-                <span class="tag">Selenium (Java)</span>
+                <span class="tag playwright-glow">Playwright</span>
+                <span class="tag selenium-glow">Selenium (Java)</span>
                 <span class="tag">Appium</span>
                 <span class="tag">Postman</span>
                 <span class="tag">Swagger</span>
@@ -82,9 +90,10 @@
         <section class="bento-item cloud-card" data-aos="fade-up" data-aos-delay="300">
             <h3>Cloud Ecosystem</h3>
             <div class="orbit-container">
-                <div class="float-orb o1">AWS</div>
-                <div class="float-orb o2">Azure</div>
-                <div class="float-orb o3">GCP</div>
+                <div class="float-orb aws-orb">AWS</div>
+                <div class="float-orb azure-orb">Azure</div>
+                <div class="float-orb gcp-orb">GCP</div>
+                <div class="float-orb salesforce-orb">Salesforce</div>
             </div>
         </section>
 
@@ -95,14 +104,6 @@
     <script>
         AOS.init({ duration: 1000, once: true });
         VanillaTilt.init(document.querySelectorAll("[data-tilt]"), { max: 4, speed: 400, glare: true, "max-glare": 0.1 });
-        
-        document.getElementById('matchBtn').onclick = function() {
-            this.innerText = "Analyzing Match...";
-            setTimeout(() => {
-                alert("Vishal Shinde's Profile: 99.8% Match for Senior SDET roles.");
-                this.innerText = "🧠 AI Resume Matcher";
-            }, 2000);
-        };
     </script>
 </body>
 </html>
