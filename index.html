@@ -3,133 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QA Architect | Playwright & AI Specialist</title>
+    <title>Vishal Shinde | Software Test Engineer</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
 </head>
 <body>
 
-    <div class="cursor-glow"></div>
+    <div class="glow-bg"></div>
 
-    <nav>
-        <div class="logo">QA<span>STRAT</span></div>
-        <ul>
-            <li><a href="#dashboard">Analytics</a></li>
-            <li><a href="#ai-tools">AI Tools</a></li>
-            <li><a href="#projects">Frameworks</a></li>
-            <li><a href="#certs">Certs</a></li>
-        </ul>
+    <nav class="glass-nav">
+        <div class="logo">VISHAL<span>.QA</span></div>
+        <div class="nav-links">
+            <a href="#about">Profile</a>
+            <a href="#expertise">Tools</a>
+            <a href="#certs">Certs</a>
+            <button class="contact-pill" onclick="window.location.href='mailto:your-email@example.com'">Hire Me</button>
+        </div>
     </nav>
 
-    <header class="hero">
-        <div class="hero-content" data-aos="zoom-out">
-            <h1 class="glitch" data-text="SDET & QA ARCHITECT">SDET & QA ARCHITECT</h1>
-            <p>Architecting self-healing ecosystems with <span class="accent">Playwright</span> and <span class="accent">TestMu AI</span>. ISTQB & AWS Certified Engineer.</p>
-            <div class="hero-btns">
-                <button class="btn-ai" id="resumeBtn">🧠 AI Resume Analyzer</button>
-                <button class="btn-outline">🕹️ Test Simulator</button>
-            </div>
-        </div>
-    </header>
-
-    <section id="dashboard" class="container">
-        <h2 class="section-title" data-aos="fade-right">QA Command Center</h2>
-        <div class="stats-grid">
-            <div class="stat-card" data-aos="flip-up">
-                <h3>99.8%</h3>
-                <p>Automation Stability</p>
-                <div class="bar"><div class="fill" style="width: 99.8%"></div></div>
-            </div>
-            <div class="stat-card" data-aos="flip-up" data-aos-delay="100">
-                <h3>-40%</h3>
-                <p>Maintenance with TestMu AI</p>
-                <div class="bar"><div class="fill" style="width: 85%"></div></div>
-            </div>
-        </div>
-    </section>
-
-    <section id="ai-tools" class="container">
-        <div class="ai-grid">
-            <div class="ai-card" data-aos="fade-right">
-                <div class="ai-icon">🔍</div>
-                <h3>AI Resume Matcher</h3>
-                <div class="drop-zone" id="dropZone">
-                    <span>Drop Job Description Here</span>
-                    <div class="loader" id="aiLoader"></div>
-                </div>
-                <div id="aiResult" class="hidden">
-                    <p class="match">98% Match Identified</p>
-                    <div class="tags-small"><span>+ Playwright</span> <span>+ AWS Cloud</span> <span>+ ISTQB</span></div>
+    <main class="bento-container">
+        
+        <section class="bento-item hero-box" data-aos="fade-up">
+            <div class="status-indicator">● Software Test Engineer</div>
+            <h1>Vishal Shinde</h1>
+            <h2 class="gradient-text">API & Automation Engineering Specialist</h2>
+            <p>Expert in full-stack QA lifecycle across <strong>Fintech, Healthcare, and E-commerce</strong>. I architect robust automation for Web, Mobile, Desktop, and complex API Integrations.</p>
+            <div class="hero-actions">
+                <button class="primary-btn" id="analyzeBtn">🧠 AI Resume Matcher</button>
+                <div class="social-links">
+                    <span>GitHub</span> • <span>LinkedIn</span>
                 </div>
             </div>
+        </section>
 
-            <div class="ai-card" data-aos="fade-left">
-                <div class="ai-icon">🐞</div>
-                <h3>Live Bug Tracker</h3>
-                <div class="bug-list">
-                    <div class="bug-item"><span class="status fixed">Fixed</span> <p>AWS S3 Integration Latency</p></div>
-                    <div class="bug-item"><span class="status progress">Testing</span> <p>Playwright Parallel Sharding</p></div>
-                    <div class="bug-item"><span class="status open">Open</span> <p>TestMu AI Self-Healing Logic</p></div>
+        <section id="about" class="bento-item stats-box" data-aos="fade-up" data-aos-delay="100">
+            <h3>API Integration & Testing</h3>
+            <div class="api-tools">
+                <div class="api-item">
+                    <img src="https://img.icons8.com/external-tal-revivo-color-tal-revivo/24/external-postman-is-the-only-complete-api-development-platform-logo-color-tal-revivo.png" alt="Postman"/>
+                    <span>Postman</span>
+                </div>
+                <div class="api-item">
+                    <img src="https://img.icons8.com/color/24/swagger.png" alt="Swagger"/>
+                    <span>Swagger</span>
                 </div>
             </div>
-        </div>
-    </section>
+            <p style="font-size: 0.8rem; margin-top: 15px; color: var(--subtext);">Specializing in Functional, Regression, and End-to-End API validation.</p>
+        </section>
 
-    <section id="projects" class="container">
-        <h2 class="section-title">Automation Frameworks</h2>
-        <div class="project-grid">
-            <div class="project-card" data-tilt data-tilt-glare>
-                <h3>Playwright Engine</h3>
-                <p>Hybrid framework with TestMu AI integration for multi-layered validation.</p>
-                <div class="tags"><span>TypeScript</span> <span>CI/CD</span> <span>AI</span></div>
+        <section id="certs" class="bento-item certs-box" data-aos="fade-up" data-aos-delay="200">
+            <h3>Certifications</h3>
+            <div class="cert-list">
+                <div class="cert-item">
+                    <span class="cert-icon">🏆</span>
+                    <div>
+                        <p class="cert-name">ISTQB Advanced Level</p>
+                        <p class="cert-org">Technical Test Analyst</p>
+                    </div>
+                </div>
+                <div class="cert-item">
+                    <span class="cert-icon">🤖</span>
+                    <div>
+                        <p class="cert-name">Salesforce AI Associate</p>
+                        <p class="cert-org">AI Testing Certification</p>
+                    </div>
+                </div>
+                <div class="cert-item">
+                    <span class="cert-icon">☁️</span>
+                    <div>
+                        <p class="cert-name">AWS Partner Accreditation</p>
+                        <p class="cert-org">Technical Specialist</p>
+                    </div>
+                </div>
+                <div class="cert-item">
+                    <span class="cert-icon">⚙️</span>
+                    <div>
+                        <p class="cert-name">AccelQ Automation Pro</p>
+                    </div>
+                </div>
+                <div class="cert-item">
+                    <span class="cert-icon">🥇</span>
+                    <div>
+                        <p class="cert-name">ISTQB Foundation</p>
+                    </div>
+                </div>
             </div>
-            <div class="project-card" data-tilt data-tilt-glare>
-                <h3>AWS Cloud Grid</h3>
-                <p>Scalable Selenium Grid 4.0 infrastructure running on AWS Fargate.</p>
-                <div class="tags"><span>AWS</span> <span>Docker</span> <span>Java</span></div>
+        </section>
+
+        <section id="expertise" class="bento-item skills-box" data-aos="fade-up" data-aos-delay="300">
+            <h3>Technical Arsenal</h3>
+            <div class="pill-cloud">
+                <span class="pill">Selenium (Java)</span>
+                <span class="pill">Appium</span>
+                <span class="pill">TestNG</span>
+                <span class="pill">JMeter</span>
+                <span class="pill">Maven</span>
+                <span class="pill">JavaScript</span>
+                <span class="pill">Data Driven</span>
+                <span class="pill">MySQL</span>
+                <span class="pill">Ubuntu / Server</span>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="certs" class="container">
-        <h2 class="section-title">Global Certifications</h2>
-        <div class="cert-flex">
-            <div class="cert-badge" data-aos="zoom-in">ISTQB Foundation</div>
-            <div class="cert-badge" data-aos="zoom-in" data-aos-delay="100">AWS Cloud Practitioner</div>
-            <div class="cert-badge" data-aos="zoom-in" data-aos-delay="200">Playwright Specialist</div>
-            <div class="cert-badge" data-aos="zoom-in" data-aos-delay="300">TestMu AI Certified</div>
-        </div>
-    </section>
+        <section class="bento-item tools-box" data-aos="fade-up" data-aos-delay="400">
+            <h3>Management & CI/CD</h3>
+            <div class="tool-list-mini">
+                <div class="t-item"><strong>DevOps:</strong> Azure DevOps, GitHub</div>
+                <div class="t-item"><strong>Agile:</strong> Jira, Zephyr, Confluence</div>
+                <div class="t-item"><strong>Cloud:</strong> AWS, Azure, GCP</div>
+            </div>
+        </section>
 
-    <footer>
-        <p>&copy; 2026 | Engineered for Quality</p>
-    </footer>
+    </main>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({ duration: 800 });
+        AOS.init({ duration: 1000, once: true });
         
-        // Mouse Glow
-        const glow = document.querySelector('.cursor-glow');
-        document.addEventListener('mousemove', (e) => {
-            glow.style.left = e.pageX + 'px';
-            glow.style.top = e.pageY + 'px';
-        });
-
-        // AI Analyzer Simulation
-        const dropZone = document.getElementById('dropZone');
-        const loader = document.getElementById('aiLoader');
-        const result = document.getElementById('aiResult');
-
-        dropZone.addEventListener('click', () => {
-            dropZone.querySelector('span').innerText = "Analyzing Skills...";
-            loader.style.display = 'block';
+        document.getElementById('analyzeBtn').addEventListener('click', function() {
+            this.innerText = "Analyzing JD...";
             setTimeout(() => {
-                loader.style.display = 'none';
-                dropZone.style.display = 'none';
-                result.classList.remove('hidden');
-            }, 2500);
+                alert("Vishal Shinde's profile is a 99.5% match! Key strengths: ISTQB Advanced, API Integration (Postman/Swagger), and Salesforce AI Associate.");
+                this.innerText = "🧠 AI Resume Matcher";
+            }, 2000);
         });
     </script>
 </body>
