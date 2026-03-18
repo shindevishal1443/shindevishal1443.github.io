@@ -1,57 +1,136 @@
+/* --- VARIABLES --- */
 :root {
     --bg: #030303;
-    --tile: rgba(18, 18, 22, 0.8);
+    --tile: rgba(18, 18, 22, 0.6);
     --border: rgba(255, 255, 255, 0.08);
     --blue: #3b82f6;
     --green: #2db67c;
     --purple: #a855f7;
+    --text-muted: #888;
 }
 
-body { margin: 0; background: var(--bg); color: #fff; font-family: 'Plus Jakarta Sans', sans-serif; }
+/* --- RESET & BASE --- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-/* Background FX */
-.bg-fx { position: fixed; inset: 0; z-index: -1; }
-.mesh { position: absolute; inset: -25%; background: radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.15), transparent 40%), radial-gradient(circle at 80% 80%, rgba(168, 85, 247, 0.1), transparent 40%); filter: blur(100px); }
-
-/* Bento Layout - Forces correct arrangement */
-.bento-container {
-    max-width: 1200px; margin: 40px auto;
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; padding: 20px;
+body { 
+    background: var(--bg); 
+    color: #fff; 
+    font-family: 'Plus Jakarta Sans', sans-serif; 
+    overflow-x: hidden;
 }
-.tile { background: var(--tile); border: 1px solid var(--border); border-radius: 32px; padding: 35px; backdrop-filter: blur(20px); }
 
-/* Tile Specifics */
-.hero-tile { grid-column: span 2; }
-.cert-tile { grid-row: span 2; }
+/* --- BACKGROUND ANIMATION --- */
+.bg-mesh {
+    position: fixed; inset: 0; z-index: -1;
+    background: 
+        radial-gradient(circle at 15% 50%, rgba(59, 130, 246, 0.1), transparent 40%),
+        radial-gradient(circle at 85% 30%, rgba(168, 85, 247, 0.1), transparent 40%);
+    filter: blur(80px);
+    animation: breathe 10s infinite alternate ease-in-out;
+}
+@keyframes breathe { 
+    0% { opacity: 0.8; } 
+    100% { opacity: 1.2; transform: scale(1.05); } 
+}
 
-/* Typography */
-h1 { font-size: 4.5rem; letter-spacing: -3px; margin: 15px 0; line-height: 1; }
-.white { color: #fff; font-weight: 700; }
-.hl-playwright { color: var(--green); font-weight: 800; }
-.hl-ai { color: var(--purple); font-weight: 800; }
+/* --- NAVBAR --- */
+.navbar {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 20px 40px; max-width: 1200px; margin: 0 auto;
+    border-bottom: 1px solid var(--border); backdrop-filter: blur(10px);
+}
+.logo { font-weight: 800; font-size: 1.2rem; }
+.logo span { color: var(--blue); }
+.contact-btn {
+    background: #fff; color: #000; padding: 10px 20px; 
+    border-radius: 50px; font-weight: 800; border: none; cursor: pointer;
+    transition: 0.3s ease;
+}
+.contact-btn:hover { background: var(--blue); color: #fff; }
 
-/* Arsenal Pills */
-.pill-box { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
-.pill { padding: 8px 16px; border-radius: 50px; background: #000; border: 1px solid var(--border); font-size: 0.8rem; }
+/* --- BENTO GRID LAYOUT --- */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.tile {
+    background: var(--tile);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 30px;
+    backdrop-filter: blur(20px);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+.tile:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Grid Spanning */
+.hero { grid-column: 1 / 3; }      /* Spans 2 columns */
+.api-tile { grid-column: 3 / 4; }  /* Top Right */
+
+/* --- TYPOGRAPHY & BUTTONS --- */
+h1 { font-size: 3.5rem; letter-spacing: -2px; margin: 15px 0; }
+h3 { font-size: 1.1rem; margin-bottom: 20px; color: #fff; }
+.bio { color: var(--text-muted); line-height: 1.6; font-size: 1.1rem; margin-bottom: 20px; }
+.hl-pw { color: var(--green); font-weight: 700; }
+.hl-ai { color: var(--purple); font-weight: 700; }
+
+.ai-btn {
+    background: var(--blue); color: #fff; border: none; 
+    padding: 12px 24px; border-radius: 12px; font-weight: 800; 
+    cursor: pointer; display: inline-flex; align-items: center; gap: 8px;
+    transition: 0.3s ease;
+}
+.ai-btn:hover { opacity: 0.9; transform: scale(1.02); }
+
+/* --- ELITE CERTIFICATIONS --- */
+.cert-list { display: flex; flex-direction: column; gap: 10px; }
+.cert { 
+    padding: 12px 16px; background: rgba(255,255,255,0.03); 
+    border-radius: 12px; border-left: 4px solid transparent; 
+}
+.cert strong { display: block; font-size: 0.9rem; }
+.cert span { font-size: 0.75rem; color: var(--text-muted); }
+.c-blue { border-left-color: var(--blue); }
+.c-purple { border-left-color: var(--purple); }
+.c-green { border-left-color: var(--green); }
+
+/* --- TECHNICAL ARSENAL (PILLS) --- */
+.pill-grid { display: flex; flex-wrap: wrap; gap: 10px; }
+.pill { 
+    padding: 8px 16px; background: #000; border: 1px solid var(--border); 
+    border-radius: 50px; font-size: 0.8rem; font-weight: 600;
+}
 .pill.pw { border-color: var(--green); color: var(--green); }
 .pill.sl { border-color: var(--blue); color: var(--blue); }
 
-/* Credential Highlighting */
-.c-row { padding: 12px; border-radius: 12px; background: rgba(255,255,255,0.03); margin-bottom: 8px; border-left: 4px solid transparent; }
-.blue-b { border-left-color: var(--blue); }
-.purple-b { border-left-color: var(--purple); }
-.green-b { border-left-color: var(--green); }
+/* --- CLOUD ECOSYSTEM (ZERO OVERLAP) --- */
+.cloud-zone { position: relative; height: 180px; width: 100%; margin-top: 10px; }
+.orb {
+    position: absolute; padding: 8px 16px; border-radius: 12px;
+    background: rgba(255,255,255,0.05); border: 1px solid var(--border);
+    font-size: 0.8rem; font-weight: 800;
+    animation: float 6s infinite ease-in-out;
+}
+.o-aws { top: 0%; left: 0%; color: #FF9900; border-color: #FF9900; }
+.o-az { top: 20%; right: 0%; color: #0089D6; border-color: #0089D6; animation-delay: 1s; }
+.o-gcp { bottom: 0%; left: 15%; color: #4285F4; border-color: #4285F4; animation-delay: 2s; }
+.o-sf { bottom: 15%; right: 10%; color: #00A1E0; border-color: #00A1E0; animation-delay: 3s; }
 
-/* Cloud - Zero Overlap positioning */
-.cloud-space { position: relative; height: 250px; margin-top: 20px; }
-.orb { position: absolute; padding: 10px 18px; border: 1px solid var(--border); border-radius: 12px; font-weight: 800; font-size: 0.8rem; }
-.aws { top: 10%; left: 10%; color: #FF9900; border-color: #FF9900; }
-.azure { top: 20%; right: 10%; color: #0089D6; border-color: #0089D6; }
-.gcp { bottom: 20%; left: 15%; color: #4285F4; border-color: #4285F4; }
-.sf { bottom: 10%; right: 15%; color: #00A1E0; border-color: #00A1E0; box-shadow: 0 0 15px rgba(0,161,224,0.2); }
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
 
-/* AI Button */
-.ai-btn { background: #fff; color: #000; border: none; padding: 12px 24px; border-radius: 12px; font-weight: 800; cursor: pointer; transition: 0.3s; }
-.ai-btn:hover { transform: scale(1.05); background: var(--blue); color: #fff; }
-
-@media (max-width: 900px) { .bento-container { grid-template-columns: 1fr; } .hero-tile { grid-column: span 1; } }
+/* --- MOBILE RESPONSIVENESS --- */
+@media (max-width: 900px) {
+    .bento-grid { grid-template-columns: 1fr; }
+    .hero, .api-tile { grid-column: 1; }
+}
