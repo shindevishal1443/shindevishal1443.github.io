@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vishal Shinde | Software Test Engineer</title>
+    <!-- Modern Font Import -->
     <link href="https://fonts.googleapis.com" rel="stylesheet">
     
     <style>
@@ -146,7 +147,7 @@
             font-size: 0.75rem; font-weight: 800; transition: 0.3s;
             animation: float 5s infinite ease-in-out;
         }
-        .orb:hover { border-color: #fff; background: rgba(255,255,255,0.1); z-index: 10; }
+        .orb:hover { border-color: #fff; background: rgba(255, 255, 255, 0.1); z-index: 10; }
         .o-aws { top: 5%; left: 0%; color: #FF9900; border-color: rgba(255, 153, 0, 0.4); }
         .o-az { top: 25%; right: 5%; color: #0089D6; border-color: rgba(0, 137, 214, 0.4); animation-delay: 1s; }
         .o-gcp { bottom: 10%; left: 10%; color: #4285F4; border-color: rgba(66, 133, 244, 0.4); animation-delay: 2s; }
@@ -188,7 +189,7 @@
         <div class="nav-links">
             <a href="#" class="nav-link">LINKEDIN</a>
             <a href="#" class="nav-link">GITHUB</a>
-            <button class="contact-btn">HIRE ME</button>
+            <button class="contact-btn" id="contactBtn">HIRE ME</button>
         </div>
     </nav>
 
@@ -202,7 +203,7 @@
             <button class="ai-btn" id="aiBtn">🧠 AI Resume Matcher</button>
         </section>
 
-        <!-- CERTIFICATIONS TILE (VERTICAL) -->
+        <!-- ELITE CREDENTIALS -->
         <section class="tile cert-tile">
             <h3>Elite Credentials</h3>
             <div class="cert-list">
@@ -212,11 +213,11 @@
                 <div class="cert c-blue"><strong>Selenium 101</strong><span>Automation Cert</span></div>
                 <div class="cert c-green"><strong>AccelQ Automation</strong><span>Certified Professional</span></div>
                 <div class="cert c-orange"><strong>AWS Partner Accreditation</strong><span>Technical Specialist</span></div>
-                <div class="cert c-blue"><strong>ISTQB® Certified Tester</strong><span>Foundation Level (CTFL)</span></div>
+                <div class="cert c-blue"><strong>ISTQB® Foundation</strong><span>Certified Tester (CTFL)</span></div>
             </div>
         </section>
 
-        <!-- API INTEGRATION TILE -->
+        <!-- API INTEGRATION -->
         <section class="tile">
             <h3>API Integration</h3>
             <div class="cert-list">
@@ -225,7 +226,7 @@
             </div>
         </section>
 
-        <!-- TECHNICAL ARSENAL TILE -->
+        <!-- TECHNICAL ARSENAL -->
         <section class="tile">
             <h3>Technical Arsenal</h3>
             <div class="pill-grid">
@@ -242,7 +243,7 @@
             </div>
         </section>
 
-        <!-- AUTOMATION HEALTH TILE -->
+        <!-- AUTOMATION HEALTH REPORT -->
         <section class="tile">
             <div style="display: flex; justify-content: space-between; align-items: start;">
                 <h3>Automation Health</h3>
@@ -255,7 +256,7 @@
             </div>
         </section>
 
-        <!-- OPS & CLOUD TILE -->
+        <!-- OPS & CLOUD -->
         <section class="tile">
             <h3>Ops & Cloud</h3>
             <div class="cloud-zone">
@@ -268,30 +269,29 @@
 
     </main>
 
-    <!-- AI MATCH MODAL -->
+    <!-- INTERACTIVE MODAL -->
     <div id="aiModal" class="modal">
         <div class="tile modal-content">
             <h2 style="font-size: 2rem; margin-bottom: 10px;">99.6% Match Found</h2>
-            <p style="color:var(--text-muted); margin-bottom: 25px;">My core competencies perfectly align with modern Quality Engineering roles. Ready to see the technical proof?</p>
+            <p style="color:var(--text-muted); margin-bottom: 25px;">My core SDET competencies perfectly align with modern Quality Engineering requirements. Ready to see the technical proof?</p>
             <button class="ai-btn" style="background:#fff; color:#000;" id="closeBtn">Continue to Portfolio</button>
         </div>
     </div>
 
     <script>
-        // Modal Logic
         const modal = document.getElementById('aiModal');
         const aiBtn = document.getElementById('aiBtn');
+        const contactBtn = document.getElementById('contactBtn');
         const closeBtn = document.getElementById('closeBtn');
 
         aiBtn.onclick = () => modal.style.display = 'flex';
+        contactBtn.onclick = () => modal.style.display = 'flex';
         closeBtn.onclick = () => modal.style.display = 'none';
 
         // Close on outside click
         window.onclick = (e) => {
             if (e.target == modal) modal.style.display = 'none';
         }
-
-        // Hover Tooltip logic can be added here for Pills
     </script>
 </body>
 </html>
