@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vishal Shinde | Software Test Engineer</title>
-    <!-- Modern Font Import -->
+    <!-- Modern Font: Plus Jakarta Sans -->
     <link href="https://fonts.googleapis.com" rel="stylesheet">
     
     <style>
@@ -12,8 +12,9 @@
             --bg: #030303;
             --tile: rgba(18, 18, 22, 0.7);
             --border: rgba(255, 255, 255, 0.08);
+            /* Elite Credential Accent Colors */
             --blue: #3b82f6;
-            --green: #2db67c;
+            --green: #10b981;
             --purple: #a855f7;
             --orange: #f59e0b;
             --text-muted: #888;
@@ -48,14 +49,11 @@
         }
         .logo { font-weight: 800; font-size: 1.1rem; letter-spacing: 1px; }
         .logo span { color: var(--blue); }
-        .nav-links { display: flex; gap: 20px; align-items: center; }
-        .nav-link { color: var(--text-muted); text-decoration: none; font-size: 0.8rem; font-weight: 600; transition: 0.3s; }
-        .nav-link:hover { color: #fff; }
         .contact-btn {
             background: #fff; color: #000; padding: 8px 20px; 
             border-radius: 50px; font-weight: 800; border: none; cursor: pointer; transition: 0.3s;
         }
-        .contact-btn:hover { transform: scale(1.05); background: var(--blue); color: #fff; }
+        .contact-btn:hover { background: var(--blue); color: #fff; transform: translateY(-2px); }
 
         /* 3. Bento Grid Layout */
         .bento-grid {
@@ -75,7 +73,6 @@
             backdrop-filter: blur(20px);
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
-            overflow: hidden;
         }
         .tile:hover {
             transform: translateY(-8px);
@@ -86,32 +83,31 @@
         .hero { grid-column: 1 / 3; }      
         .cert-tile { grid-row: span 2; }
         
-        /* 4. Typography */
+        /* 4. Hero Typography */
         h1 { font-size: 3.8rem; letter-spacing: -3px; margin: 15px 0; line-height: 0.9; }
-        h3 { font-size: 1rem; margin-bottom: 20px; color: #fff; text-transform: uppercase; letter-spacing: 1px; }
+        h3 { font-size: 0.9rem; margin-bottom: 20px; color: #fff; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; }
         .bio { color: var(--text-muted); line-height: 1.6; font-size: 1.1rem; margin-bottom: 25px; }
-        .hl-pw { color: var(--green); font-weight: 700; }
-        .hl-ai { color: var(--purple); font-weight: 700; }
-        
-        /* AI Button */
-        .ai-btn {
-            background: linear-gradient(90deg, var(--blue), #2563eb);
-            color: #fff; border: none; padding: 14px 28px; border-radius: 14px; 
-            font-weight: 800; cursor: pointer; display: inline-flex; align-items: center; gap: 10px;
-            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.2); transition: 0.3s;
-        }
-        .ai-btn:hover { transform: scale(1.05); box-shadow: 0 15px 30px rgba(59, 130, 246, 0.4); }
 
-        /* 5. Elite Credentials List */
+        /* 5. ELITE CREDENTIALS CARD STYLING */
         .cert-list { display: flex; flex-direction: column; gap: 10px; }
         .cert { 
-            padding: 14px; background: rgba(255,255,255,0.02); 
-            border-radius: 14px; border-left: 4px solid transparent; transition: 0.3s;
+            padding: 14px; 
+            background: rgba(255, 255, 255, 0.03); /* Translucent Background */
+            backdrop-filter: blur(10px);
+            border-radius: 14px; 
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-left: 4px solid transparent; 
+            transition: 0.3s;
         }
-        .cert:hover { background: rgba(255, 255, 255, 0.06); transform: translateX(8px); }
+        .cert:hover { 
+            background: rgba(255, 255, 255, 0.08); 
+            transform: translateX(8px); 
+            border-color: rgba(255, 255, 255, 0.2);
+        }
         .cert strong { display: block; font-size: 0.85rem; margin-bottom: 3px; }
         .cert span { font-size: 0.7rem; color: var(--text-muted); }
 
+        /* Accent Borders */
         .c-blue { border-left-color: var(--blue); }
         .c-purple { border-left-color: var(--purple); }
         .c-green { border-left-color: var(--green); }
@@ -121,8 +117,7 @@
         .pill-grid { display: flex; flex-wrap: wrap; gap: 8px; }
         .pill { 
             padding: 8px 14px; background: #000; border: 1px solid var(--border); 
-            border-radius: 50px; font-size: 0.75rem; font-weight: 600; cursor: help;
-            transition: 0.3s;
+            border-radius: 50px; font-size: 0.75rem; font-weight: 600; cursor: help; transition: 0.3s;
         }
         .pill:hover { border-color: #fff; transform: scale(1.1); background: #111; }
         .pill.pw { border-color: var(--green); color: var(--green); }
@@ -131,7 +126,7 @@
         /* 7. Automation Health Tracker */
         .stat-value { font-size: 2.8rem; font-weight: 800; color: var(--green); margin: 10px 0; letter-spacing: -2px; }
         .live-tag {
-            font-size: 0.6rem; background: rgba(45, 182, 124, 0.15); 
+            font-size: 0.6rem; background: rgba(16, 185, 129, 0.15); 
             color: var(--green); padding: 4px 10px; border-radius: 6px; font-weight: 800;
             animation: pulse-op 2s infinite;
         }
@@ -144,19 +139,14 @@
         .orb {
             position: absolute; padding: 10px 16px; border-radius: 12px;
             background: rgba(255,255,255,0.03); border: 1px solid var(--border);
-            font-size: 0.75rem; font-weight: 800; transition: 0.3s;
-            animation: float 5s infinite ease-in-out;
+            font-size: 0.75rem; font-weight: 800; animation: float 5s infinite ease-in-out;
         }
-        .orb:hover { border-color: #fff; background: rgba(255, 255, 255, 0.1); z-index: 10; }
         .o-aws { top: 5%; left: 0%; color: #FF9900; border-color: rgba(255, 153, 0, 0.4); }
         .o-az { top: 25%; right: 5%; color: #0089D6; border-color: rgba(0, 137, 214, 0.4); animation-delay: 1s; }
         .o-gcp { bottom: 10%; left: 10%; color: #4285F4; border-color: rgba(66, 133, 244, 0.4); animation-delay: 2s; }
         .o-sf { bottom: 20%; right: 15%; color: #00A1E0; border-color: rgba(0, 161, 224, 0.4); animation-delay: 3.5s; }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-12px); }
-        }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
 
         /* 9. Modal Styling */
         .modal {
@@ -164,20 +154,10 @@
             background: rgba(0, 0, 0, 0.95); backdrop-filter: blur(15px);
             align-items: center; justify-content: center;
         }
-        .modal-content { max-width: 500px; width: 90%; text-align: center; }
+        .modal-content { max-width: 450px; width: 90%; text-align: center; }
 
-        /* Responsive Breakpoints */
-        @media (max-width: 1024px) {
-            .bento-grid { grid-template-columns: repeat(2, 1fr); }
-            .hero { grid-column: span 2; }
-            h1 { font-size: 3rem; }
-        }
-        @media (max-width: 768px) {
-            .bento-grid { grid-template-columns: 1fr; }
-            .hero, .cert-tile { grid-column: span 1; }
-            .navbar { padding: 20px; }
-            .nav-links { display: none; }
-        }
+        @media (max-width: 1024px) { .bento-grid { grid-template-columns: repeat(2, 1fr); } .hero { grid-column: span 2; } }
+        @media (max-width: 768px) { .bento-grid { grid-template-columns: 1fr; } .hero, .cert-tile { grid-column: span 1; } }
     </style>
 </head>
 <body>
@@ -186,11 +166,7 @@
 
     <nav class="navbar">
         <div class="logo">VISHAL SHINDE <span>.</span></div>
-        <div class="nav-links">
-            <a href="#" class="nav-link">LINKEDIN</a>
-            <a href="#" class="nav-link">GITHUB</a>
-            <button class="contact-btn" id="contactBtn">HIRE ME</button>
-        </div>
+        <button class="contact-btn" id="contactBtn">HIRE ME</button>
     </nav>
 
     <main class="bento-grid">
@@ -199,8 +175,8 @@
         <section class="tile hero">
             <span style="color:var(--blue); font-size:0.75rem; font-weight:800; letter-spacing:2px;">SOFTWARE TEST ENGINEER</span>
             <h1>Vishal Shinde</h1>
-            <p class="bio">Architecting Quality for <span style="color:#fff;">Fintech, Healthcare, & E-commerce</span>. Expert in <span class="hl-pw">Selenium</span>, <span class="hl-ai">AI-Driven Testing</span>, & API Automation.</p>
-            <button class="ai-btn" id="aiBtn">🧠 AI Resume Matcher</button>
+            <p class="bio">Architecting Quality for <span style="color:#fff;">Fintech, Healthcare, & E-commerce</span>. Expert in <span style="color:var(--green); font-weight:700;">Selenium</span>, <span style="color:var(--purple); font-weight:700;">AI-Driven Testing</span>, & API Automation.</p>
+            <button class="contact-btn" style="background:var(--blue); color:#fff;" id="aiBtn">🧠 AI Resume Matcher</button>
         </section>
 
         <!-- ELITE CREDENTIALS -->
@@ -211,9 +187,9 @@
                 <div class="cert c-purple"><strong>Salesforce AI Associate</strong><span>AI Automation Specialist</span></div>
                 <div class="cert c-green"><strong>Playwright 101</strong><span>Automation Cert</span></div>
                 <div class="cert c-blue"><strong>Selenium 101</strong><span>Automation Cert</span></div>
-                <div class="cert c-green"><strong>AccelQ Automation</strong><span>Certified Professional</span></div>
+                <div class="cert c-green"><strong>AccelQ Automation Expert</strong><span>Full-Stack Certification</span></div>
                 <div class="cert c-orange"><strong>AWS Partner Accreditation</strong><span>Technical Specialist</span></div>
-                <div class="cert c-blue"><strong>ISTQB® Foundation</strong><span>Certified Tester (CTFL)</span></div>
+                <div class="cert c-blue"><strong>ISTQB® Certified Tester</strong><span>Foundation Level (CTFL)</span></div>
             </div>
         </section>
 
@@ -243,7 +219,7 @@
             </div>
         </section>
 
-        <!-- AUTOMATION HEALTH REPORT -->
+        <!-- AUTOMATION HEALTH -->
         <section class="tile">
             <div style="display: flex; justify-content: space-between; align-items: start;">
                 <h3>Automation Health</h3>
@@ -273,8 +249,8 @@
     <div id="aiModal" class="modal">
         <div class="tile modal-content">
             <h2 style="font-size: 2rem; margin-bottom: 10px;">99.6% Match Found</h2>
-            <p style="color:var(--text-muted); margin-bottom: 25px;">My core SDET competencies perfectly align with modern Quality Engineering requirements. Ready to see the technical proof?</p>
-            <button class="ai-btn" style="background:#fff; color:#000;" id="closeBtn">Continue to Portfolio</button>
+            <p style="color:var(--text-muted); margin-bottom: 25px;">My SDET competencies align with modern Quality Engineering requirements. Ready to see the technical proof?</p>
+            <button class="contact-btn" style="background:#fff; color:#000;" id="closeBtn">Continue to Portfolio</button>
         </div>
     </div>
 
@@ -288,10 +264,7 @@
         contactBtn.onclick = () => modal.style.display = 'flex';
         closeBtn.onclick = () => modal.style.display = 'none';
 
-        // Close on outside click
-        window.onclick = (e) => {
-            if (e.target == modal) modal.style.display = 'none';
-        }
+        window.onclick = (e) => { if (e.target == modal) modal.style.display = 'none'; }
     </script>
 </body>
 </html>
