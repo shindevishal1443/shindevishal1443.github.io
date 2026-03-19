@@ -4,15 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vishal Shinde | Software Test Engineer</title>
-    <!-- Modern Font: Plus Jakarta Sans -->
     <link href="https://fonts.googleapis.com" rel="stylesheet">
     
     <style>
         :root {
             --bg: #030303;
-            --tile: rgba(18, 18, 22, 0.7);
+            --tile: rgba(255, 255, 255, 0.02);
             --border: rgba(255, 255, 255, 0.08);
-            /* Elite Credential Accent Colors */
+            /* Highlight Pattern Colors */
             --blue: #3b82f6;
             --green: #10b981;
             --purple: #a855f7;
@@ -30,38 +29,29 @@
             line-height: 1.5;
         }
 
-        /* 1. Dynamic Background Mesh */
+        /* Background Mesh Effect */
         .bg-mesh {
             position: fixed; inset: 0; z-index: -1;
             background: 
                 radial-gradient(circle at 15% 50%, rgba(59, 130, 246, 0.08), transparent 40%),
                 radial-gradient(circle at 85% 30%, rgba(168, 85, 247, 0.08), transparent 40%);
             filter: blur(80px);
-            animation: breathe 10s infinite alternate ease-in-out;
         }
-        @keyframes breathe { 0% { opacity: 0.8; } 100% { opacity: 1.2; transform: scale(1.05); } }
 
-        /* 2. Navbar Styling */
         .navbar {
             display: flex; justify-content: space-between; align-items: center;
-            padding: 20px 40px; max-width: 1200px; margin: 0 auto;
-            border-bottom: 1px solid var(--border); backdrop-filter: blur(10px);
+            padding: 25px 40px; max-width: 1250px; margin: 0 auto;
         }
         .logo { font-weight: 800; font-size: 1.1rem; letter-spacing: 1px; }
         .logo span { color: var(--blue); }
-        .contact-btn {
-            background: #fff; color: #000; padding: 8px 20px; 
-            border-radius: 50px; font-weight: 800; border: none; cursor: pointer; transition: 0.3s;
-        }
-        .contact-btn:hover { background: var(--blue); color: #fff; transform: translateY(-2px); }
 
-        /* 3. Bento Grid Layout */
+        /* Bento Grid */
         .bento-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: 1.2fr 1fr 1fr; /* Exact layout from your image */
             gap: 20px;
-            max-width: 1200px;
-            margin: 40px auto;
+            max-width: 1250px;
+            margin: 20px auto;
             padding: 0 20px;
         }
 
@@ -71,93 +61,70 @@
             border-radius: 24px;
             padding: 30px;
             backdrop-filter: blur(20px);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-        }
-        .tile:hover {
-            transform: translateY(-8px);
-            border-color: rgba(255, 255, 255, 0.2);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            transition: all 0.4s ease;
         }
 
         .hero { grid-column: 1 / 3; }      
-        .cert-tile { grid-row: span 2; }
-        
-        /* 4. Hero Typography */
-        h1 { font-size: 3.8rem; letter-spacing: -3px; margin: 15px 0; line-height: 0.9; }
-        h3 { font-size: 0.9rem; margin-bottom: 20px; color: #fff; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; }
-        .bio { color: var(--text-muted); line-height: 1.6; font-size: 1.1rem; margin-bottom: 25px; }
+        .cert-tile { grid-row: span 2; } /* Matches vertical cert sidebar */
 
-        /* 5. ELITE CREDENTIALS CARD STYLING */
-        .cert-list { display: flex; flex-direction: column; gap: 10px; }
+        h1 { font-size: 3.5rem; letter-spacing: -2px; margin: 10px 0; }
+        h3 { font-size: 1rem; margin-bottom: 20px; color: #fff; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; }
+        .bio { color: var(--text-muted); font-size: 1.1rem; margin-bottom: 25px; }
+
+        /* ELITE CREDENTIALS HIGHLIGHT PATTERN */
+        .cert-list { display: flex; flex-direction: column; gap: 12px; }
         .cert { 
-            padding: 14px; 
-            background: rgba(255, 255, 255, 0.03); /* Translucent Background */
-            backdrop-filter: blur(10px);
-            border-radius: 14px; 
+            padding: 16px; 
+            background: rgba(255, 255, 255, 0.03); 
+            border-radius: 16px; 
             border: 1px solid rgba(255, 255, 255, 0.05);
             border-left: 4px solid transparent; 
-            transition: 0.3s;
+            transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
         .cert:hover { 
             background: rgba(255, 255, 255, 0.08); 
-            transform: translateX(8px); 
-            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateX(10px); /* Specific slide-out effect */
         }
-        .cert strong { display: block; font-size: 0.85rem; margin-bottom: 3px; }
-        .cert span { font-size: 0.7rem; color: var(--text-muted); }
+        .cert strong { display: block; font-size: 0.9rem; margin-bottom: 4px; }
+        .cert span { font-size: 0.75rem; color: var(--text-muted); }
 
-        /* Accent Borders */
+        /* Border Highlights */
         .c-blue { border-left-color: var(--blue); }
         .c-purple { border-left-color: var(--purple); }
         .c-green { border-left-color: var(--green); }
         .c-orange { border-left-color: var(--orange); }
 
-        /* 6. Technical Arsenal Pills */
+        /* Buttons */
+        .ai-btn {
+            background: var(--blue); color: #fff; border: none; 
+            padding: 12px 24px; border-radius: 12px; font-weight: 800; 
+            cursor: pointer; display: inline-flex; align-items: center; gap: 10px;
+        }
+
+        /* Pills */
         .pill-grid { display: flex; flex-wrap: wrap; gap: 8px; }
         .pill { 
-            padding: 8px 14px; background: #000; border: 1px solid var(--border); 
-            border-radius: 50px; font-size: 0.75rem; font-weight: 600; cursor: help; transition: 0.3s;
+            padding: 8px 16px; background: #000; border: 1px solid var(--border); 
+            border-radius: 50px; font-size: 0.8rem; font-weight: 600;
         }
-        .pill:hover { border-color: #fff; transform: scale(1.1); background: #111; }
-        .pill.pw { border-color: var(--green); color: var(--green); }
-        .pill.sl { border-color: var(--blue); color: var(--blue); }
+        .pill.active { border-color: var(--green); color: var(--green); }
 
-        /* 7. Automation Health Tracker */
-        .stat-value { font-size: 2.8rem; font-weight: 800; color: var(--green); margin: 10px 0; letter-spacing: -2px; }
-        .live-tag {
-            font-size: 0.6rem; background: rgba(16, 185, 129, 0.15); 
-            color: var(--green); padding: 4px 10px; border-radius: 6px; font-weight: 800;
-            animation: pulse-op 2s infinite;
-        }
-        @keyframes pulse-op { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
-        .progress-bar-bg { height: 6px; background: rgba(255,255,255,0.05); border-radius: 10px; margin-top: 15px; overflow: hidden; }
-        .progress-fill { height: 100%; background: var(--green); box-shadow: 0 0 15px var(--green); width: 98.4%; }
-
-        /* 8. Cloud Zone Floating Animation */
-        .cloud-zone { position: relative; height: 160px; width: 100%; margin-top: 10px; }
+        /* Floating Cloud Animation */
+        .cloud-zone { position: relative; height: 160px; width: 100%; }
         .orb {
-            position: absolute; padding: 10px 16px; border-radius: 12px;
+            position: absolute; padding: 10px 18px; border-radius: 12px;
             background: rgba(255,255,255,0.03); border: 1px solid var(--border);
-            font-size: 0.75rem; font-weight: 800; animation: float 5s infinite ease-in-out;
+            font-size: 0.8rem; font-weight: 800; animation: float 6s infinite ease-in-out;
         }
-        .o-aws { top: 5%; left: 0%; color: #FF9900; border-color: rgba(255, 153, 0, 0.4); }
-        .o-az { top: 25%; right: 5%; color: #0089D6; border-color: rgba(0, 137, 214, 0.4); animation-delay: 1s; }
-        .o-gcp { bottom: 10%; left: 10%; color: #4285F4; border-color: rgba(66, 133, 244, 0.4); animation-delay: 2s; }
-        .o-sf { bottom: 20%; right: 15%; color: #00A1E0; border-color: rgba(0, 161, 224, 0.4); animation-delay: 3.5s; }
+        .o-aws { top: 10%; left: 0%; color: var(--orange); border-color: var(--orange); }
+        .o-az { top: 50%; right: 5%; color: var(--blue); border-color: var(--blue); animation-delay: 1s; }
 
         @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
 
-        /* 9. Modal Styling */
-        .modal {
-            display: none; position: fixed; inset: 0; z-index: 100;
-            background: rgba(0, 0, 0, 0.95); backdrop-filter: blur(15px);
-            align-items: center; justify-content: center;
+        @media (max-width: 900px) {
+            .bento-grid { grid-template-columns: 1fr; }
+            .hero, .cert-tile { grid-column: span 1; }
         }
-        .modal-content { max-width: 450px; width: 90%; text-align: center; }
-
-        @media (max-width: 1024px) { .bento-grid { grid-template-columns: repeat(2, 1fr); } .hero { grid-column: span 2; } }
-        @media (max-width: 768px) { .bento-grid { grid-template-columns: 1fr; } .hero, .cert-tile { grid-column: span 1; } }
     </style>
 </head>
 <body>
@@ -166,20 +133,19 @@
 
     <nav class="navbar">
         <div class="logo">VISHAL SHINDE <span>.</span></div>
-        <button class="contact-btn" id="contactBtn">HIRE ME</button>
     </nav>
 
     <main class="bento-grid">
         
-        <!-- HERO TILE -->
+        <!-- HERO SECTION -->
         <section class="tile hero">
             <span style="color:var(--blue); font-size:0.75rem; font-weight:800; letter-spacing:2px;">SOFTWARE TEST ENGINEER</span>
             <h1>Vishal Shinde</h1>
             <p class="bio">Architecting Quality for <span style="color:#fff;">Fintech, Healthcare, & E-commerce</span>. Expert in <span style="color:var(--green); font-weight:700;">Selenium</span>, <span style="color:var(--purple); font-weight:700;">AI-Driven Testing</span>, & API Automation.</p>
-            <button class="contact-btn" style="background:var(--blue); color:#fff;" id="aiBtn">🧠 AI Resume Matcher</button>
+            <button class="ai-btn">🤖 99.6% Match Found</button>
         </section>
 
-        <!-- ELITE CREDENTIALS -->
+        <!-- ELITE CREDENTIALS WITH HIGHLIGHT PATTERN -->
         <section class="tile cert-tile">
             <h3>Elite Credentials</h3>
             <div class="cert-list">
@@ -187,9 +153,9 @@
                 <div class="cert c-purple"><strong>Salesforce AI Associate</strong><span>AI Automation Specialist</span></div>
                 <div class="cert c-green"><strong>Playwright 101</strong><span>Automation Cert</span></div>
                 <div class="cert c-blue"><strong>Selenium 101</strong><span>Automation Cert</span></div>
-                <div class="cert c-green"><strong>AccelQ Automation Expert</strong><span>Full-Stack Certification</span></div>
+                <div class="cert c-green"><strong>AccelQ Automation Expert</strong><span>Full-Stack Expert</span></div>
                 <div class="cert c-orange"><strong>AWS Partner Accreditation</strong><span>Technical Specialist</span></div>
-                <div class="cert c-blue"><strong>ISTQB® Certified Tester</strong><span>Foundation Level (CTFL)</span></div>
+                <div class="cert c-blue"><strong>ISTQB® Foundation</strong><span>Certified Tester (CTFL)</span></div>
             </div>
         </section>
 
@@ -206,8 +172,8 @@
         <section class="tile">
             <h3>Technical Arsenal</h3>
             <div class="pill-grid">
-                <span class="pill pw">Playwright</span>
-                <span class="pill sl">Selenium (Java)</span>
+                <span class="pill active">Playwright</span>
+                <span class="pill active">Selenium (Java)</span>
                 <span class="pill">Appium</span>
                 <span class="pill">TestNG</span>
                 <span class="pill">JMeter</span>
@@ -219,52 +185,15 @@
             </div>
         </section>
 
-        <!-- AUTOMATION HEALTH -->
-        <section class="tile">
-            <div style="display: flex; justify-content: space-between; align-items: start;">
-                <h3>Automation Health</h3>
-                <span class="live-tag">LIVE REPORT</span>
-            </div>
-            <div class="stat-value">98.4%</div>
-            <p style="font-size: 0.75rem; color: var(--text-muted); font-weight: 600;">Avg. Pass Rate across 12 CI/CD suites.</p>
-            <div class="progress-bar-bg">
-                <div class="progress-fill"></div>
-            </div>
-        </section>
-
         <!-- OPS & CLOUD -->
         <section class="tile">
             <h3>Ops & Cloud</h3>
             <div class="cloud-zone">
                 <div class="orb o-aws">AWS</div>
                 <div class="orb o-az">Azure</div>
-                <div class="orb o-gcp">GCP</div>
-                <div class="orb o-sf">Salesforce</div>
             </div>
         </section>
 
     </main>
-
-    <!-- INTERACTIVE MODAL -->
-    <div id="aiModal" class="modal">
-        <div class="tile modal-content">
-            <h2 style="font-size: 2rem; margin-bottom: 10px;">99.6% Match Found</h2>
-            <p style="color:var(--text-muted); margin-bottom: 25px;">My SDET competencies align with modern Quality Engineering requirements. Ready to see the technical proof?</p>
-            <button class="contact-btn" style="background:#fff; color:#000;" id="closeBtn">Continue to Portfolio</button>
-        </div>
-    </div>
-
-    <script>
-        const modal = document.getElementById('aiModal');
-        const aiBtn = document.getElementById('aiBtn');
-        const contactBtn = document.getElementById('contactBtn');
-        const closeBtn = document.getElementById('closeBtn');
-
-        aiBtn.onclick = () => modal.style.display = 'flex';
-        contactBtn.onclick = () => modal.style.display = 'flex';
-        closeBtn.onclick = () => modal.style.display = 'none';
-
-        window.onclick = (e) => { if (e.target == modal) modal.style.display = 'none'; }
-    </script>
 </body>
 </html>
