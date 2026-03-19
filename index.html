@@ -3,121 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vishal Shinde | Software Test Engineer</title>
+    <title>Vishal Shinde | Portfolio</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Google Fonts for a modern tech look -->
-    <link href="https://fonts.googleapis.com" rel="stylesheet">
 </head>
 <body>
-
-    <div class="dashboard-container">
-        <!-- Main Header Section -->
-        <header class="glass-card main-header">
-            <span class="sub-title">SOFTWARE TEST ENGINEER</span>
+    <div class="container">
+        <!-- Main Header Card -->
+        <header class="card hero">
+            <div class="header-top">VISHAL SHINDE</div>
+            <span class="role">SOFTWARE TEST ENGINEER</span>
             <h1>Vishal Shinde</h1>
-            <p>Architecting Quality for <span class="highlight">Fintech, Healthcare, & E-commerce</span>. Expert in <span class="neon-text">Selenium, AI-Driven Testing</span>, & API Automation.</p>
-            <div class="header-actions">
-                <button class="ai-btn">🤖 AI Resume Matcher</button>
-                <button class="contact-trigger-btn" onclick="toggleModal()">Get In Touch</button>
-            </div>
+            <p>Architecting Quality for <strong>Fintech, Healthcare, & E-commerce</strong>. Expert in <span class="green">Selenium</span>, <span class="purple">AI-Driven Testing</span>, & API Automation.</p>
+            <button class="ai-btn">🤖 AI Resume Matcher</button>
         </header>
 
-        <div class="content-grid">
-            <!-- Left Column -->
-            <div class="col left-col">
-                <section class="glass-card">
+        <div class="grid-layout">
+            <!-- Left Column: API & Ops -->
+            <div class="column">
+                <section class="card">
                     <h3>API Integration</h3>
-                    <div class="skill-entry"><strong>Postman</strong><span>E2E Validation</span></div>
-                    <div class="skill-entry"><strong>Swagger</strong><span>API Contract Testing</span></div>
+                    <div class="api-item green-border"><strong>Postman</strong><p>E2E Validation</p></div>
+                    <div class="api-item blue-border"><strong>Swagger</strong><p>API Contract Testing</p></div>
                 </section>
 
-                <section class="glass-card">
+                <section class="card ops-cloud">
                     <h3>Ops & Cloud</h3>
-                    <div class="cloud-cluster">
-                        <span class="cloud-tag">AWS</span>
-                        <span class="cloud-tag">Azure</span>
-                        <span class="cloud-tag">Salesforce</span>
-                        <span class="cloud-tag">GCP</span>
+                    <div class="cloud-nodes">
+                        <span class="node aws">AWS</span>
+                        <span class="node azure">Azure</span>
+                        <span class="node salesforce">Salesforce</span>
+                        <span class="node gcp">GCP</span>
                     </div>
                 </section>
             </div>
 
             <!-- Middle Column: Technical Arsenal -->
-            <section class="glass-card middle-col">
+            <section class="card technical-arsenal">
                 <h3>Technical Arsenal</h3>
                 <div class="arsenal-grid">
-                    <span class="arsenal-tag">Playwright</span>
-                    <span class="arsenal-tag">Selenium (Java)</span>
-                    <span class="arsenal-tag">Appium</span>
-                    <span class="arsenal-tag">TestNG</span>
-                    <span class="arsenal-tag">JMeter</span>
-                    <span class="arsenal-tag">MySQL</span>
-                    <span class="arsenal-tag">Ubuntu</span>
-                    <span class="arsenal-tag">Java</span>
-                    <span class="arsenal-tag">JavaScript</span>
-                    <span class="arsenal-tag">Maven</span>
+                    <span class="tag green">Playwright</span>
+                    <span class="tag blue">Selenium (Java)</span>
+                    <span class="tag green">Appium</span>
+                    <span class="tag blue">TestNG</span>
+                    <span class="tag blue">JMeter</span>
+                    <span class="tag blue">MySQL</span>
+                    <span class="tag green">Ubuntu</span>
+                    <span class="tag blue">Java</span>
+                    <span class="tag blue">JavaScript</span>
+                    <span class="tag blue">Maven</span>
                 </div>
             </section>
 
-            <!-- Right Column: Elite Credentials -->
-            <aside class="glass-card right-col">
+            <!-- Right Column: Credentials Sidebar -->
+            <aside class="card credentials">
                 <h3>Elite Credentials</h3>
-                <ul class="credential-list">
-                    <li class="cred-item istqb"><strong>ISTQB® Advanced</strong><span>Technical Test Analyst</span></li>
-                    <li class="cred-item ai"><strong>Salesforce AI Associate</strong><span>AI Automation Specialist</span></li>
-                    <li class="cred-item playwright"><strong>Playwright 101</strong><span>Automation Cert</span></li>
-                    <li class="cred-item aws"><strong>AWS Partner Accreditation</strong><span>Technical Specialist</span></li>
-                </ul>
+                <div class="cred-item blue-side"><strong>ISTQB® Advanced</strong><p>Technical Test Analyst</p></div>
+                <div class="cred-item purple-side"><strong>Salesforce AI Associate</strong><p>AI Automation Specialist</p></div>
+                <div class="cred-item green-side"><strong>Playwright 101</strong><p>Automation Cert</p></div>
+                <div class="cred-item blue-side"><strong>Selenium 101</strong><p>Automation Cert</p></div>
+                <div class="cred-item green-side"><strong>AccelQ Automation</strong><p>Certified Professional</p></div>
+                <div class="cred-item orange-side"><strong>AWS Partner Accreditation</strong><p>Technical Specialist</p></div>
             </aside>
         </div>
     </div>
-
-    <!-- Contact Modal -->
-    <div id="contactModal" class="modal-overlay">
-        <div class="glass-card modal-content">
-            <span class="close-btn" onclick="toggleModal()">&times;</span>
-            <h3>Send a Message</h3>
-            <form id="contactForm">
-                <div class="input-group">
-                    <label>Name</label>
-                    <input type="text" placeholder="Your Name" required>
-                </div>
-                <div class="input-group">
-                    <label>Email</label>
-                    <input type="email" placeholder="your@email.com" required>
-                </div>
-                <div class="input-group">
-                    <label>Message</label>
-                    <textarea rows="4" placeholder="How can I help you?"></textarea>
-                </div>
-                <button type="submit" class="ai-btn">Send Message</button>
-            </form>
-        </div>
-    </div>
-
-    <!-- Scripts for Animations and Modal -->
-    <script>
-        // Scroll Animation Logic
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('show');
-                }
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('.glass-card').forEach((el) => observer.observe(el));
-
-        // Modal Logic
-        function toggleModal() {
-            const modal = document.getElementById('contactModal');
-            modal.style.display = (modal.style.display === 'flex') ? 'none' : 'flex';
-        }
-
-        window.onclick = function(event) {
-            const modal = document.getElementById('contactModal');
-            if (event.target == modal) toggleModal();
-        }
-    </script>
 </body>
 </html>
