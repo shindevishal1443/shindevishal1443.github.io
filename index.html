@@ -3,68 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vishal Shinde | Portfolio</title>
+    <title>Vishal Shinde | Software Test Engineer Portfolio</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com" rel="stylesheet">
 </head>
 <body>
+
     <div class="container">
-        <!-- Main Header Card -->
+        <!-- HEADER SECTION -->
         <header class="card hero">
             <div class="header-top">VISHAL SHINDE</div>
             <span class="role">SOFTWARE TEST ENGINEER</span>
             <h1>Vishal Shinde</h1>
-            <p>Architecting Quality for <strong>Fintech, Healthcare, & E-commerce</strong>. Expert in <span class="green">Selenium</span>, <span class="purple">AI-Driven Testing</span>, & API Automation.</p>
-            <button class="ai-btn">🤖 AI Resume Matcher</button>
+            <p>Architecting Quality for <strong>Fintech, Healthcare, & E-commerce</strong>. Expert in <span class="green-text">Selenium</span>, <span class="purple-text">AI-Driven Testing</span>, & API Automation.</p>
+            <div class="header-actions">
+                <button class="ai-btn">🤖 AI Resume Matcher</button>
+                <button class="contact-trigger-btn" onclick="toggleModal()">Get In Touch</button>
+            </div>
         </header>
 
         <div class="grid-layout">
-            <!-- Left Column: API & Ops -->
+            <!-- LEFT COLUMN -->
             <div class="column">
                 <section class="card">
                     <h3>API Integration</h3>
-                    <div class="api-item green-border"><strong>Postman</strong><p>E2E Validation</p></div>
-                    <div class="api-item blue-border"><strong>Swagger</strong><p>API Contract Testing</p></div>
+                    <div class="item-row green-side"><strong>Postman</strong><p>E2E Validation</p></div>
+                    <div class="item-row blue-side"><strong>Swagger</strong><p>API Contract Testing</p></div>
                 </section>
 
                 <section class="card ops-cloud">
                     <h3>Ops & Cloud</h3>
                     <div class="cloud-nodes">
-                        <span class="node aws">AWS</span>
-                        <span class="node azure">Azure</span>
-                        <span class="node salesforce">Salesforce</span>
-                        <span class="node gcp">GCP</span>
+                        <span class="node orange">AWS</span>
+                        <span class="node blue">Azure</span>
+                        <span class="node blue">Salesforce</span>
+                        <span class="node blue-dim">GCP</span>
                     </div>
                 </section>
             </div>
 
-            <!-- Middle Column: Technical Arsenal -->
-            <section class="card technical-arsenal">
-                <h3>Technical Arsenal</h3>
-                <div class="arsenal-grid">
-                    <span class="tag green">Playwright</span>
-                    <span class="tag blue">Selenium (Java)</span>
-                    <span class="tag green">Appium</span>
-                    <span class="tag blue">TestNG</span>
-                    <span class="tag blue">JMeter</span>
-                    <span class="tag blue">MySQL</span>
-                    <span class="tag green">Ubuntu</span>
-                    <span class="tag blue">Java</span>
-                    <span class="tag blue">JavaScript</span>
-                    <span class="tag blue">Maven</span>
-                </div>
-            </section>
+            <!-- MIDDLE COLUMN -->
+            <div class="column">
+                <section class="card technical-arsenal">
+                    <h3>Technical Arsenal</h3>
+                    <div class="arsenal-grid">
+                        <span class="tag green" data-tip="Expert: 5+ years Automation">Playwright</span>
+                        <span class="tag blue" data-tip="Advanced: Lead for 3 Fintech apps">Selenium (Java)</span>
+                        <span class="tag green" data-tip="Intermediate: iOS/Android">Appium</span>
+                        <span class="tag blue" data-tip="Expert: Parallel Execution">TestNG</span>
+                        <span class="tag blue" data-tip="Advanced: Load Testing">JMeter</span>
+                        <span class="tag blue" data-tip="Intermediate: Data Seeding">MySQL</span>
+                        <span class="tag green" data-tip="Expert: CI/CD Setup">Ubuntu</span>
+                        <span class="tag blue" data-tip="Advanced: Java 17 Streams">Java</span>
+                        <span class="tag blue" data-tip="Intermediate: Node.js">JavaScript</span>
+                        <span class="tag blue" data-tip="Expert: Dependency Mgmt">Maven</span>
+                    </div>
+                </section>
 
-            <!-- Right Column: Credentials Sidebar -->
+                <!-- LIVE TEST REPORT TOGGLE -->
+                <section class="card report-toggle" onclick="toggleReport()">
+                    <div class="report-header">
+                        <div class="live-indicator"><span class="pulse"></span> LIVE TEST REPORT</div>
+                        <span id="arrow">▼</span>
+                    </div>
+                    <div id="report-body" class="report-content">
+                        <div class="stat-grid">
+                            <div><small>Pass Rate</small><br><strong>98.4%</strong></div>
+                            <div><small>Suites</small><br><strong>12</strong></div>
+                        </div>
+                        <div class="progress-bg"><div class="progress-fill"></div></div>
+                        <p class="timestamp">Last Run: <span id="time-val"></span></p>
+                    </div>
+                </section>
+            </div>
+
+            <!-- RIGHT COLUMN -->
             <aside class="card credentials">
                 <h3>Elite Credentials</h3>
-                <div class="cred-item blue-side"><strong>ISTQB® Advanced</strong><p>Technical Test Analyst</p></div>
-                <div class="cred-item purple-side"><strong>Salesforce AI Associate</strong><p>AI Automation Specialist</p></div>
-                <div class="cred-item green-side"><strong>Playwright 101</strong><p>Automation Cert</p></div>
-                <div class="cred-item blue-side"><strong>Selenium 101</strong><p>Automation Cert</p></div>
-                <div class="cred-item green-side"><strong>AccelQ Automation</strong><p>Certified Professional</p></div>
-                <div class="cred-item orange-side"><strong>AWS Partner Accreditation</strong><p>Technical Specialist</p></div>
+                <div class="cred-row blue-side"><strong>ISTQB® Advanced</strong><p>Technical Test Analyst</p></div>
+                <div class="cred-row purple-side"><strong>Salesforce AI Associate</strong><p>AI Specialist</p></div>
+                <div class="cred-row green-side"><strong>Playwright 101</strong><p>Automation Cert</p></div>
+                <div class="cred-row blue-side"><strong>Selenium 101</strong><p>Automation Cert</p></div>
+                <div class="cred-row orange-side"><strong>AWS Partner</strong><p>Technical Specialist</p></div>
             </aside>
         </div>
     </div>
+
+    <!-- MODAL -->
+    <div id="contactModal" class="modal-overlay">
+        <div class="card modal-content">
+            <span class="close" onclick="toggleModal()">&times;</span>
+            <h3>Contact Me</h3>
+            <form>
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="Email" required>
+                <textarea placeholder="Message" rows="4"></textarea>
+                <button type="submit" class="ai-btn">Send</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function toggleReport() {
+            const body = document.getElementById('report-body');
+            const arrow = document.getElementById('arrow');
+            body.classList.toggle('active');
+            arrow.style.transform = body.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
+            document.getElementById('time-val').innerText = new Date().toLocaleTimeString();
+        }
+
+        function toggleModal() {
+            const m = document.getElementById('contactModal');
+            m.style.display = (m.style.display === 'flex') ? 'none' : 'flex';
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('show'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.card').forEach(c => observer.observe(c));
+    </script>
 </body>
 </html>
