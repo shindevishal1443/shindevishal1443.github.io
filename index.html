@@ -10,7 +10,7 @@
         /* --- VARIABLES --- */
         :root {
             --bg: #030303;
-            --tile: rgba(18, 18, 22, 0.5); /* Slightly more transparent for the background */
+            --tile: rgba(18, 18, 22, 0.5);
             --border: rgba(255, 255, 255, 0.08);
             --blue: #3b82f6;
             --green: #2db67c;
@@ -33,14 +33,10 @@
         /* --- PREMIUM BACKGROUND --- */
         .bg-mesh {
             position: fixed; inset: 0; z-index: -1;
-            /* Replace with your downloaded image path */
-            background-image: url('assets/premium_qa_bg.jpg'); 
-            /* Fallback gradient if image fails to load */
             background-color: var(--bg);
             background: radial-gradient(circle at 15% 50%, rgba(59, 130, 246, 0.1), transparent 40%),
                         radial-gradient(circle at 85% 30%, rgba(168, 85, 247, 0.1), transparent 40%);
             background-size: cover;
-            background-position: center;
             filter: blur(5px) brightness(0.6);
             animation: breathe 10s infinite alternate ease-in-out;
         }
@@ -55,6 +51,34 @@
         }
         .logo { font-weight: 800; font-size: 1.2rem; }
         .logo span { color: var(--blue); }
+
+        .nav-right { display: flex; align-items: center; gap: 20px; }
+
+        /* Header Social Buttons */
+        .header-socials { display: flex; gap: 10px; }
+        .social-link-hdr {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.75rem;
+            font-weight: 600;
+            transition: 0.3s;
+            padding: 5px 10px;
+            border: 1px solid transparent;
+            border-radius: 8px;
+        }
+        .social-link-hdr:hover {
+            color: #fff;
+            border-color: var(--border);
+            background: rgba(255,255,255,0.05);
+        }
+
+        .contact-btn {
+            background: #fff; color: #000; padding: 10px 24px; 
+            border-radius: 50px; font-weight: 800; border: none; cursor: pointer;
+            transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-decoration: none; font-size: 0.85rem;
+        }
+        .contact-btn:hover { background: var(--blue); color: #fff; transform: scale(1.05); }
 
         /* --- BENTO GRID --- */
         .bento-grid {
@@ -72,19 +96,15 @@
             border-radius: 24px;
             padding: 30px;
             backdrop-filter: blur(20px);
-            /* Bouncy Hover State */
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            /* Load-in State */
             opacity: 0; 
             animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
         }
         .tile:hover {
             transform: translateY(-8px);
             border-color: rgba(255, 255, 255, 0.2);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
         }
 
-        /* Grid Spans & Animation Delays */
         .hero { grid-column: span 2; animation-delay: 0.1s; }      
         .cert-tile { grid-row: span 2; animation-delay: 0.2s; } 
         .metrics-tile { animation-delay: 0.3s; }
@@ -104,23 +124,19 @@
         .hl-pw { color: var(--green); font-weight: 700; }
         .hl-ai { color: var(--purple); font-weight: 700; }
         
-        /* --- AI BUTTON & MATCHER --- */
         .ai-btn {
             background: var(--blue); color: #fff; border: none; 
             padding: 12px 24px; border-radius: 12px; font-weight: 800; 
             cursor: pointer; display: inline-flex; align-items: center; gap: 8px;
             transition: 0.3s ease;
         }
-        .ai-btn:hover { transform: scale(1.05); }
         
         #matchResult {
             display: none; font-weight: 800; color: var(--success);
             margin-top: 15px; font-size: 1.1rem;
-            animation: slideIn 0.4s ease forwards;
         }
-        @keyframes slideIn { from { opacity:0; transform: translateY(10px); } to { opacity:1; transform: translateY(0); } }
 
-        /* --- SEMANTIC CERTIFICATIONS --- */
+        /* --- ELEMENTS --- */
         .cert-list { display: flex; flex-direction: column; gap: 12px; }
         .cert { 
             text-decoration: none; color: inherit; display: block;
@@ -129,64 +145,49 @@
             transition: 0.3s ease;
         }
         .cert:hover { background: rgba(255, 255, 255, 0.08); transform: translateX(8px); }
-        .cert strong { display: block; font-size: 0.9rem; margin-bottom: 2px; }
+        .cert strong { display: block; font-size: 0.9rem; }
         .cert span { font-size: 0.75rem; color: var(--text-muted); }
 
-        .c-blue { border-left-color: var(--blue); background: linear-gradient(90deg, rgba(59, 130, 246, 0.1), transparent); }
-        .c-purple { border-left-color: var(--purple); background: linear-gradient(90deg, rgba(168, 85, 247, 0.1), transparent); }
-        .c-green { border-left-color: var(--green); background: linear-gradient(90deg, rgba(45, 182, 124, 0.1), transparent); }
-        .c-orange { border-left-color: var(--orange); background: linear-gradient(90deg, rgba(245, 158, 11, 0.1), transparent); }
+        .c-blue { border-left-color: var(--blue); }
+        .c-purple { border-left-color: var(--purple); }
+        .c-green { border-left-color: var(--green); }
+        .c-orange { border-left-color: var(--orange); }
 
-        /* --- METRICS GRID --- */
         .metrics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
         .metric-card { background: rgba(255,255,255,0.03); padding: 15px; border-radius: 16px; border: 1px solid var(--border); text-align: center; }
         .metric-num { display: block; font-size: 1.5rem; font-weight: 800; color: var(--green); }
         .metric-label { font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase; }
 
-        /* --- TECHNICAL ARSENAL --- */
         .pill-grid { display: flex; flex-wrap: wrap; gap: 10px; }
-        .pill { 
-            padding: 8px 16px; background: #000; border: 1px solid var(--border); 
-            border-radius: 50px; font-size: 0.8rem; font-weight: 600; transition: 0.3s;
-        }
-        .pill:hover { background: #fff; color: #000; }
+        .pill { padding: 8px 16px; background: #000; border: 1px solid var(--border); border-radius: 50px; font-size: 0.8rem; font-weight: 600; }
         .pill.pw { border-color: var(--green); color: var(--green); }
         .pill.sl { border-color: var(--blue); color: var(--blue); }
 
-        /* --- CLOUD ZONE --- */
-        .cloud-zone { position: relative; height: 180px; width: 100%; margin-top: 10px; }
-        .orb {
-            position: absolute; padding: 8px 16px; border-radius: 12px;
-            background: rgba(255,255,255,0.05); border: 1px solid var(--border);
-            font-size: 0.8rem; font-weight: 800; animation: float 6s infinite ease-in-out;
-        }
-        .o-aws { top: 0%; left: 0%; color: #FF9900; border-color: #FF9900; }
-        .o-az { top: 20%; right: 0%; color: #0089D6; border-color: #0089D6; animation-delay: 1s; }
-        .o-gcp { bottom: 0%; left: 15%; color: #4285F4; border-color: #4285F4; animation-delay: 2s; }
-        .o-sf { bottom: 15%; right: 10%; color: #00A1E0; border-color: #00A1E0; animation-delay: 3s; }
+        .cloud-zone { position: relative; height: 180px; width: 100%; }
+        .orb { position: absolute; padding: 8px 16px; border-radius: 12px; background: rgba(255,255,255,0.05); border: 1px solid var(--border); font-size: 0.8rem; font-weight: 800; animation: float 6s infinite ease-in-out; }
+        .o-aws { top: 0; left: 0; color: #FF9900; }
+        .o-az { top: 20%; right: 0; color: #0089D6; }
+        .o-gcp { bottom: 0; left: 15%; color: #4285F4; }
+        .o-sf { bottom: 15%; right: 10%; color: #00A1E0; }
 
         @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
 
         /* --- FOOTER --- */
         footer {
-            max-width: 1200px; margin: 60px auto 40px; padding: 40px 20px 0;
+            max-width: 1200px; margin: 40px auto; padding: 30px 20px;
             border-top: 1px solid var(--border); display: flex; justify-content: space-between;
-            align-items: center; flex-wrap: wrap; gap: 20px;
-            opacity: 0; animation: fadeInUp 1s ease forwards; animation-delay: 0.8s;
+            align-items: center; opacity: 0; animation: fadeInUp 1s ease forwards; animation-delay: 0.8s;
         }
         .status-indicator { display: inline-flex; align-items: center; gap: 8px; font-size: 0.75rem; color: var(--green); font-weight: 600; }
         .status-dot { width: 8px; height: 8px; background-color: var(--green); border-radius: 50%; box-shadow: 0 0 10px var(--green); animation: pulse 2s infinite; }
-        @keyframes pulse { 0%, 100% { transform: scale(0.95); opacity: 0.5; } 50% { transform: scale(1.2); opacity: 1; } }
-        
-        .social-links { display: flex; gap: 15px; }
-        .social-btn { padding: 10px 20px; background: var(--tile); border: 1px solid var(--border); border-radius: 12px; color: #fff; text-decoration: none; font-size: 0.8rem; font-weight: 700; transition: 0.3s; }
-        .social-btn:hover { background: #fff; color: #000; transform: translateY(-3px); }
+        @keyframes pulse { 0%, 100% { transform: scale(0.9); opacity: 0.5; } 50% { transform: scale(1.2); opacity: 1; } }
 
-        /* --- MOBILE RESPONSIVENESS --- */
+        /* --- MOBILE --- */
         @media (max-width: 900px) {
             .bento-grid { grid-template-columns: 1fr; }
             .hero, .arsenal-tile, .cert-tile { grid-column: span 1; }
-            footer { flex-direction: column; text-align: center; }
+            .header-socials { display: none; } /* Hide icons on mobile for space */
+            .navbar { padding: 20px; }
         }
     </style>
 </head>
@@ -196,10 +197,17 @@
 
     <nav class="navbar">
         <div class="logo">VISHAL <span>SHINDE</span></div>
+        
+        <div class="nav-right">
+            <div class="header-socials">
+                <a href="https://linkedin.com/in/yourusername" target="_blank" class="social-link-hdr">LinkedIn</a>
+                <a href="https://github.com/yourusername" target="_blank" class="social-link-hdr">GitHub</a>
+            </div>
+            <a href="mailto:your.email@example.com" class="contact-btn">Connect Me</a>
+        </div>
     </nav>
 
     <main class="bento-grid">
-        
         <section class="tile hero">
             <span style="color:var(--blue); font-size:0.8rem; font-weight:800; letter-spacing:1px;">SOFTWARE TEST ENGINEER</span>
             <h1>Vishal Shinde</h1>
@@ -264,52 +272,36 @@
                 <div class="orb o-sf">Salesforce</div>
             </div>
         </section>
-
     </main>
 
     <footer>
-        <div style="display: flex; flex-direction: column; gap: 10px;">
+        <div style="display: flex; flex-direction: column; gap: 5px;">
             <div class="status-indicator">
                 <span class="status-dot"></span>
-                Available for New Opportunities
+                Available for QA Automation Roles
             </div>
-            <p style="font-size: 0.8rem; color: var(--text-muted);">
-                © 2024 Vishal Shinde. Built with Precision.
+            <p style="font-size: 0.75rem; color: var(--text-muted);">
+                © 2024 Vishal Shinde. All rights reserved.
             </p>
-        </div>
-        <div class="social-links">
-            <a href="#" class="social-btn">LinkedIn</a>
-            <a href="#" class="social-btn">GitHub</a>
-            <a href="#" class="social-btn" style="border-color: var(--blue); color: var(--blue);">Email Me</a>
         </div>
     </footer>
 
     <script>
-        // AI Resume Matcher
         document.getElementById('aiMatcher').addEventListener('click', function() {
             const btn = this;
             const result = document.getElementById('matchResult');
-            
-            btn.innerHTML = "⏳ Analyzing Profile...";
-            btn.style.opacity = "0.7";
-            btn.style.pointerEvents = "none";
-            
+            btn.innerHTML = "⏳ Analyzing...";
             setTimeout(() => {
                 btn.style.display = "none";
                 result.style.display = "block";
-                document.querySelector('.hero').style.borderColor = "var(--success)";
-            }, 1500);
+            }, 1000);
         });
 
-        // Live Test Pulse Effect
         setInterval(() => {
             const tiles = document.querySelectorAll('.tile');
             const randomTile = tiles[Math.floor(Math.random() * tiles.length)];
-            
             randomTile.style.borderColor = "var(--blue)";
-            setTimeout(() => {
-                randomTile.style.borderColor = "var(--border)";
-            }, 1000);
+            setTimeout(() => randomTile.style.borderColor = "var(--border)", 1000);
         }, 4000);
     </script>
 </body>
