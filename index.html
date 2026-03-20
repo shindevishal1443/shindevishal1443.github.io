@@ -147,24 +147,49 @@
         .pill.db { border-color: var(--cyan); color: var(--cyan); }
         .pill:hover { background: #fff; color: #000; transform: translateY(-3px); }
 
-        /* --- 8. METRICS & GLOSSIFIED OPS --- */
+        /* --- 8. GLOSSIFIED METRICS & OPS --- */
         .metrics-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+        
         .metric-card { 
-            background: rgba(255,255,255,0.03); padding: 15px; border-radius: 18px; 
-            text-align: center; border: 1px solid var(--border); transition: 0.3s ease;
+            background: rgba(255,255,255,0.03); 
+            padding: 15px; border-radius: 20px; 
+            text-align: center; border: 1px solid var(--border); 
+            transition: 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            position: relative; overflow: hidden;
+            backdrop-filter: blur(10px);
         }
-        .metric-num { font-size: 1.4rem; font-weight: 800; color: var(--green); display: block; }
-        .metric-label { font-size: 0.6rem; color: var(--text-muted); text-transform: uppercase; }
 
-        /* Glossy Ops Styles */
+        /* Reusable Shine Animation */
+        .metric-card::after {
+            content: ""; position: absolute; top: -50%; left: -150%;
+            width: 200%; height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+            transform: rotate(45deg); transition: 0.8s;
+        }
+        .metric-card:hover::after { left: 150%; }
+
+        /* Quality Impact Specifics */
+        .metrics-tile .metric-card:hover {
+            transform: scale(1.05);
+            background: rgba(255, 255, 255, 0.06);
+            border-color: var(--green);
+            box-shadow: 0 0 20px rgba(45, 182, 124, 0.15);
+        }
+        .metric-num { 
+            font-size: 1.6rem; font-weight: 800; color: var(--green); 
+            display: block; text-shadow: 0 0 15px rgba(45, 182, 124, 0.3);
+        }
+        .metric-label { font-size: 0.6rem; color: var(--text-muted); text-transform: uppercase; font-weight: 600; }
+
+        /* Ops & Cloud Specifics */
         .ops-tile .metric-card {
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
-            backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1);
-            font-weight: 700; font-size: 0.7rem; letter-spacing: 1px;
-            display: flex; align-items: center; justify-content: center; min-height: 55px;
+            font-weight: 700; font-size: 0.75rem; letter-spacing: 1px;
+            display: flex; align-items: center; justify-content: center; min-height: 60px;
         }
         .ops-tile .metric-card:hover {
-            background: rgba(255, 255, 255, 0.08); transform: scale(1.05);
+            transform: scale(1.05);
+            background: rgba(255, 255, 255, 0.08);
             box-shadow: 0 10px 25px -10px rgba(0,0,0,0.5);
         }
         .cloud-aws { color: #FF9900; border-bottom: 2px solid #FF9900 !important; }
@@ -278,7 +303,7 @@
                 <div class="metric-card cloud-aws">AWS</div>
                 <div class="metric-card cloud-azure">Azure</div>
                 <div class="metric-card cloud-gcp">GCP</div>
-                <div class="metric-card cloud-aws">Salesforce</div>
+                <div class="metric-card cloud-sf">Salesforce</div>
             </div>
         </section>
     </main>
