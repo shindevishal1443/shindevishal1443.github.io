@@ -3,158 +3,314 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vishal Shinde | Portfolio</title>
+    <title>Vishal Shinde | Software Test Engineer</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
     
     <style>
+        /* --- VARIABLES --- */
         :root {
             --bg: #030303;
-            --tile: rgba(18, 18, 22, 0.6);
+            --tile: rgba(18, 18, 22, 0.5); /* Slightly more transparent for the background */
             --border: rgba(255, 255, 255, 0.08);
             --blue: #3b82f6;
             --green: #2db67c;
             --purple: #a855f7;
             --orange: #f59e0b;
             --text-muted: #888;
+            --success: #00ff88;
         }
 
+        /* --- RESET & BASE --- */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background: var(--bg); color: #fff; font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; }
+        
+        body { 
+            background: var(--bg); 
+            color: #fff; 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            overflow-x: hidden;
+        }
 
+        /* --- PREMIUM BACKGROUND --- */
         .bg-mesh {
             position: fixed; inset: 0; z-index: -1;
+            /* Replace with your downloaded image path */
+            background-image: url('assets/premium_qa_bg.jpg'); 
+            /* Fallback gradient if image fails to load */
+            background-color: var(--bg);
             background: radial-gradient(circle at 15% 50%, rgba(59, 130, 246, 0.1), transparent 40%),
                         radial-gradient(circle at 85% 30%, rgba(168, 85, 247, 0.1), transparent 40%);
-            filter: blur(80px);
+            background-size: cover;
+            background-position: center;
+            filter: blur(5px) brightness(0.6);
+            animation: breathe 10s infinite alternate ease-in-out;
         }
+        @keyframes breathe { 0% { opacity: 0.8; } 100% { opacity: 1.1; transform: scale(1.02); } }
 
+        /* --- NAVBAR --- */
         .navbar {
             display: flex; justify-content: space-between; align-items: center;
             padding: 20px 40px; max-width: 1200px; margin: 0 auto;
-            backdrop-filter: blur(10px); z-index: 10;
+            border-bottom: 1px solid var(--border); backdrop-filter: blur(10px);
+            opacity: 0; animation: fadeInUp 1s ease forwards;
         }
+        .logo { font-weight: 800; font-size: 1.2rem; }
+        .logo span { color: var(--blue); }
 
+        /* --- BENTO GRID --- */
         .bento-grid {
-            display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
-            max-width: 1200px; margin: 40px auto; padding: 0 20px 100px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
         }
 
-        /* 1. Bouncy Hover States */
         .tile {
-            background: var(--tile); border: 1px solid var(--border); border-radius: 24px;
-            padding: 30px; backdrop-filter: blur(20px);
+            background: var(--tile);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 30px;
+            backdrop-filter: blur(20px);
+            /* Bouncy Hover State */
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            /* Load-in State */
+            opacity: 0; 
+            animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
         }
         .tile:hover {
-            transform: translateY(-8px) scale(1.01);
+            transform: translateY(-8px);
             border-color: rgba(255, 255, 255, 0.2);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
         }
 
-        .hero { grid-column: 1 / 3; }
-        .cert-tile { grid-row: span 2; }
+        /* Grid Spans & Animation Delays */
+        .hero { grid-column: span 2; animation-delay: 0.1s; }      
+        .cert-tile { grid-row: span 2; animation-delay: 0.2s; } 
+        .metrics-tile { animation-delay: 0.3s; }
+        .api-tile { animation-delay: 0.4s; }
+        .arsenal-tile { grid-column: span 2; animation-delay: 0.5s; }
+        .cloud-tile { animation-delay: 0.6s; }
 
-        /* 2. Semantic Links for Certs */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        
+        /* --- TYPOGRAPHY --- */
+        h1 { font-size: 3.5rem; letter-spacing: -2px; margin: 15px 0; }
+        h3 { font-size: 1.1rem; margin-bottom: 20px; color: #fff; }
+        .bio { color: var(--text-muted); line-height: 1.6; font-size: 1.1rem; margin-bottom: 20px; }
+        .hl-pw { color: var(--green); font-weight: 700; }
+        .hl-ai { color: var(--purple); font-weight: 700; }
+        
+        /* --- AI BUTTON & MATCHER --- */
+        .ai-btn {
+            background: var(--blue); color: #fff; border: none; 
+            padding: 12px 24px; border-radius: 12px; font-weight: 800; 
+            cursor: pointer; display: inline-flex; align-items: center; gap: 8px;
+            transition: 0.3s ease;
+        }
+        .ai-btn:hover { transform: scale(1.05); }
+        
+        #matchResult {
+            display: none; font-weight: 800; color: var(--success);
+            margin-top: 15px; font-size: 1.1rem;
+            animation: slideIn 0.4s ease forwards;
+        }
+        @keyframes slideIn { from { opacity:0; transform: translateY(10px); } to { opacity:1; transform: translateY(0); } }
+
+        /* --- SEMANTIC CERTIFICATIONS --- */
         .cert-list { display: flex; flex-direction: column; gap: 12px; }
-        .cert-link { 
+        .cert { 
             text-decoration: none; color: inherit; display: block;
             padding: 12px 16px; background: rgba(255,255,255,0.03); 
-            border-radius: 12px; border-left: 4px solid transparent; transition: 0.3s;
+            border-radius: 12px; border-left: 4px solid transparent;
+            transition: 0.3s ease;
         }
-        .cert-link:hover { background: rgba(255,255,255,0.1); transform: translateX(10px); }
-        .c-blue { border-left-color: var(--blue); }
-        .c-purple { border-left-color: var(--purple); }
+        .cert:hover { background: rgba(255, 255, 255, 0.08); transform: translateX(8px); }
+        .cert strong { display: block; font-size: 0.9rem; margin-bottom: 2px; }
+        .cert span { font-size: 0.75rem; color: var(--text-muted); }
 
-        /* 3. Execution Metrics Implementation */
-        .metrics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 10px; }
-        .metric-card { background: rgba(0,0,0,0.3); padding: 15px; border-radius: 15px; border: 1px solid var(--border); text-align: center; }
-        .metric-num { display: block; font-size: 1.8rem; font-weight: 800; color: var(--green); }
-        .metric-label { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+        .c-blue { border-left-color: var(--blue); background: linear-gradient(90deg, rgba(59, 130, 246, 0.1), transparent); }
+        .c-purple { border-left-color: var(--purple); background: linear-gradient(90deg, rgba(168, 85, 247, 0.1), transparent); }
+        .c-green { border-left-color: var(--green); background: linear-gradient(90deg, rgba(45, 182, 124, 0.1), transparent); }
+        .c-orange { border-left-color: var(--orange); background: linear-gradient(90deg, rgba(245, 158, 11, 0.1), transparent); }
 
-        /* 4. UX Micro-interactions: AI Matcher */
-        .ai-container { position: relative; margin-top: 20px; }
-        .ai-btn {
-            background: var(--blue); color: #fff; border: none; padding: 14px 28px;
-            border-radius: 12px; font-weight: 800; cursor: pointer; transition: 0.3s;
+        /* --- METRICS GRID --- */
+        .metrics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .metric-card { background: rgba(255,255,255,0.03); padding: 15px; border-radius: 16px; border: 1px solid var(--border); text-align: center; }
+        .metric-num { display: block; font-size: 1.5rem; font-weight: 800; color: var(--green); }
+        .metric-label { font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase; }
+
+        /* --- TECHNICAL ARSENAL --- */
+        .pill-grid { display: flex; flex-wrap: wrap; gap: 10px; }
+        .pill { 
+            padding: 8px 16px; background: #000; border: 1px solid var(--border); 
+            border-radius: 50px; font-size: 0.8rem; font-weight: 600; transition: 0.3s;
         }
-        .match-result { 
-            display: none; align-items: center; gap: 10px; 
-            font-weight: 800; color: var(--green); animation: fadeIn 0.5s ease forwards;
+        .pill:hover { background: #fff; color: #000; }
+        .pill.pw { border-color: var(--green); color: var(--green); }
+        .pill.sl { border-color: var(--blue); color: var(--blue); }
+
+        /* --- CLOUD ZONE --- */
+        .cloud-zone { position: relative; height: 180px; width: 100%; margin-top: 10px; }
+        .orb {
+            position: absolute; padding: 8px 16px; border-radius: 12px;
+            background: rgba(255,255,255,0.05); border: 1px solid var(--border);
+            font-size: 0.8rem; font-weight: 800; animation: float 6s infinite ease-in-out;
         }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .o-aws { top: 0%; left: 0%; color: #FF9900; border-color: #FF9900; }
+        .o-az { top: 20%; right: 0%; color: #0089D6; border-color: #0089D6; animation-delay: 1s; }
+        .o-gcp { bottom: 0%; left: 15%; color: #4285F4; border-color: #4285F4; animation-delay: 2s; }
+        .o-sf { bottom: 15%; right: 10%; color: #00A1E0; border-color: #00A1E0; animation-delay: 3s; }
 
-        .pill-grid { display: flex; flex-wrap: wrap; gap: 8px; }
-        .pill { padding: 6px 14px; background: #000; border: 1px solid var(--border); border-radius: 50px; font-size: 0.8rem; }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
 
-        @media (max-width: 900px) { .bento-grid { grid-template-columns: 1fr; } .hero { grid-column: 1; } }
+        /* --- FOOTER --- */
+        footer {
+            max-width: 1200px; margin: 60px auto 40px; padding: 40px 20px 0;
+            border-top: 1px solid var(--border); display: flex; justify-content: space-between;
+            align-items: center; flex-wrap: wrap; gap: 20px;
+            opacity: 0; animation: fadeInUp 1s ease forwards; animation-delay: 0.8s;
+        }
+        .status-indicator { display: inline-flex; align-items: center; gap: 8px; font-size: 0.75rem; color: var(--green); font-weight: 600; }
+        .status-dot { width: 8px; height: 8px; background-color: var(--green); border-radius: 50%; box-shadow: 0 0 10px var(--green); animation: pulse 2s infinite; }
+        @keyframes pulse { 0%, 100% { transform: scale(0.95); opacity: 0.5; } 50% { transform: scale(1.2); opacity: 1; } }
+        
+        .social-links { display: flex; gap: 15px; }
+        .social-btn { padding: 10px 20px; background: var(--tile); border: 1px solid var(--border); border-radius: 12px; color: #fff; text-decoration: none; font-size: 0.8rem; font-weight: 700; transition: 0.3s; }
+        .social-btn:hover { background: #fff; color: #000; transform: translateY(-3px); }
+
+        /* --- MOBILE RESPONSIVENESS --- */
+        @media (max-width: 900px) {
+            .bento-grid { grid-template-columns: 1fr; }
+            .hero, .arsenal-tile, .cert-tile { grid-column: span 1; }
+            footer { flex-direction: column; text-align: center; }
+        }
     </style>
 </head>
 <body>
+
     <div class="bg-mesh"></div>
+
     <nav class="navbar">
-        <div style="font-weight:800;">VISHAL <span style="color:var(--blue)">SHINDE</span></div>
+        <div class="logo">VISHAL <span>SHINDE</span></div>
     </nav>
 
     <main class="bento-grid">
+        
         <section class="tile hero">
-            <h1 style="font-size: 3.5rem; letter-spacing: -2px;">Vishal Shinde</h1>
-            <p style="color:var(--text-muted); font-size: 1.1rem; margin: 15px 0;">Architecting Quality for <span style="color:#fff">Fintech & E-commerce</span>.</p>
-            <div class="ai-container">
-                <button class="ai-btn" id="aiMatcher">🧠 Match Profile with AI</button>
-                <div id="matchResult" class="match-result">
-                    <span style="font-size: 1.5rem;">✨</span> 
-                    <span>99.8% RECRUITER MATCH FOUND</span>
-                </div>
-            </div>
+            <span style="color:var(--blue); font-size:0.8rem; font-weight:800; letter-spacing:1px;">SOFTWARE TEST ENGINEER</span>
+            <h1>Vishal Shinde</h1>
+            <p class="bio">Architecting Quality for <span style="color:#fff;">Fintech, Healthcare, & E-commerce</span>. Expert in <span class="hl-pw">Selenium</span>, <span class="hl-ai">AI-Driven Testing</span>, & API Automation.</p>
+            <button class="ai-btn" id="aiMatcher">🧠 Match Profile with AI</button>
+            <div id="matchResult">✅ 99.8% Recruiter Compatibility Match Found</div>
         </section>
 
         <section class="tile cert-tile">
-            <h3 style="margin-bottom:20px;">Elite Credentials</h3>
+            <h3>Elite Credentials</h3>
             <div class="cert-list">
-                <a href="https://credly.com" target="_blank" class="cert-link c-blue"><strong>ISTQB® Advanced</strong><span>Technical Test Analyst</span></a>
-                <a href="#" class="cert-link c-purple"><strong>Salesforce AI Associate</strong><span>AI Automation Specialist</span></a>
-                <a href="#" class="cert-link c-blue"><strong>Playwright 101</strong><span>Automation Professional</span></a>
-                <a href="#" class="cert-link c-purple"><strong>AWS Accreditation</strong><span>Technical Specialist</span></a>
+                <a href="#" class="cert c-blue"><strong>ISTQB® Advanced</strong><span>Technical Test Analyst</span></a>
+                <a href="#" class="cert c-purple"><strong>Salesforce AI Associate</strong><span>AI Automation Specialist</span></a>
+                <a href="#" class="cert c-green"><strong>Playwright 101</strong><span>Automation Cert</span></a>
+                <a href="#" class="cert c-blue"><strong>Selenium 101</strong><span>Automation Cert</span></a>
+                <a href="#" class="cert c-green"><strong>AccelQ Automation</strong><span>Certified Professional</span></a>
+                <a href="#" class="cert c-orange"><strong>AWS Partner Accreditation</strong><span>Technical Specialist</span></a>
+                <a href="#" class="cert c-blue"><strong>ISTQB® Certified Tester</strong><span>Foundation Level (CTFL)</span></a>
             </div>
         </section>
 
-        <section class="tile">
-            <h3 style="margin-bottom:15px;">Quality Impact</h3>
+        <section class="tile metrics-tile">
+            <h3>Quality Impact</h3>
             <div class="metrics-grid">
-                <div class="metric-card"><span class="metric-num">99.2%</span><span class="metric-label">Pass Rate</span></div>
+                <div class="metric-card"><span class="metric-num">99%</span><span class="metric-label">Pass Rate</span></div>
                 <div class="metric-card"><span class="metric-num">500+</span><span class="metric-label">API Tests</span></div>
-                <div class="metric-card"><span class="metric-num">70%</span><span class="metric-label">Efficiency Gain</span></div>
+                <div class="metric-card"><span class="metric-num">70%</span><span class="metric-label">Time Saved</span></div>
                 <div class="metric-card"><span class="metric-num">0</span><span class="metric-label">Prod Leaks</span></div>
             </div>
         </section>
 
-        <section class="tile">
-            <h3 style="margin-bottom:15px;">Technical Arsenal</h3>
-            <div class="pill-grid">
-                <span class="pill">Playwright</span><span class="pill">Selenium</span>
-                <span class="pill">Postman</span><span class="pill">Appium</span>
-                <span class="pill">Java</span><span class="pill">SQL</span>
+        <section class="tile api-tile">
+            <h3>API Integration</h3>
+            <div class="cert-list">
+                <div class="cert c-green"><strong>Postman</strong><span>E2E Validation</span></div>
+                <div class="cert c-blue"><strong>Swagger</strong><span>API Contract Testing</span></div>
             </div>
         </section>
+
+        <section class="tile arsenal-tile">
+            <h3>Technical Arsenal</h3>
+            <div class="pill-grid">
+                <span class="pill pw">Playwright</span>
+                <span class="pill sl">Selenium (Java)</span>
+                <span class="pill pw">Appium</span>
+                <span class="pill sl">TestNG</span>
+                <span class="pill pw">JMeter</span>
+                <span class="pill sl">MySQL</span>
+                <span class="pill pw">Ubuntu</span>
+                <span class="pill sl">Java</span>
+                <span class="pill pw">JavaScript</span>
+                <span class="pill sl">Maven</span>
+            </div>
+        </section>
+
+        <section class="tile cloud-tile">
+            <h3>Ops & Cloud</h3>
+            <div class="cloud-zone">
+                <div class="orb o-aws">AWS</div>
+                <div class="orb o-az">Azure</div>
+                <div class="orb o-gcp">GCP</div>
+                <div class="orb o-sf">Salesforce</div>
+            </div>
+        </section>
+
     </main>
 
+    <footer>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+            <div class="status-indicator">
+                <span class="status-dot"></span>
+                Available for New Opportunities
+            </div>
+            <p style="font-size: 0.8rem; color: var(--text-muted);">
+                © 2024 Vishal Shinde. Built with Precision.
+            </p>
+        </div>
+        <div class="social-links">
+            <a href="#" class="social-btn">LinkedIn</a>
+            <a href="#" class="social-btn">GitHub</a>
+            <a href="#" class="social-btn" style="border-color: var(--blue); color: var(--blue);">Email Me</a>
+        </div>
+    </footer>
+
     <script>
-        // AI Interaction Logic
+        // AI Resume Matcher
         document.getElementById('aiMatcher').addEventListener('click', function() {
             const btn = this;
             const result = document.getElementById('matchResult');
             
-            btn.innerHTML = "⏳ Analyzing Compatibility...";
-            btn.style.opacity = "0.6";
+            btn.innerHTML = "⏳ Analyzing Profile...";
+            btn.style.opacity = "0.7";
             btn.style.pointerEvents = "none";
-
+            
             setTimeout(() => {
                 btn.style.display = "none";
-                result.style.display = "flex";
-                // Trigger a success flash on the tile
-                document.querySelector('.hero').style.boxShadow = "0 0 30px rgba(45, 182, 124, 0.2)";
+                result.style.display = "block";
+                document.querySelector('.hero').style.borderColor = "var(--success)";
             }, 1500);
         });
+
+        // Live Test Pulse Effect
+        setInterval(() => {
+            const tiles = document.querySelectorAll('.tile');
+            const randomTile = tiles[Math.floor(Math.random() * tiles.length)];
+            
+            randomTile.style.borderColor = "var(--blue)";
+            setTimeout(() => {
+                randomTile.style.borderColor = "var(--border)";
+            }, 1000);
+        }, 4000);
     </script>
 </body>
 </html>
