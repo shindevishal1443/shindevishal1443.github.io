@@ -110,16 +110,10 @@
         .cert strong { display: block; font-size: 0.85rem; }
         .cert span { font-size: 0.7rem; color: var(--text-muted); }
 
-        /* Restored Gradient Backs */
         .c-blue { background: linear-gradient(90deg, rgba(59, 130, 246, 0.1), transparent); border-left-color: var(--blue); }
         .c-purple { background: linear-gradient(90deg, rgba(168, 85, 247, 0.1), transparent); border-left-color: var(--purple); }
         .c-green { background: linear-gradient(90deg, rgba(45, 182, 124, 0.1), transparent); border-left-color: var(--green); }
         .c-orange { background: linear-gradient(90deg, rgba(245, 158, 11, 0.1), transparent); border-left-color: var(--orange); }
-
-        .metrics-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
-        .metric-card { background: rgba(255,255,255,0.03); padding: 15px; border-radius: 18px; text-align: center; border: 1px solid var(--border); }
-        .metric-num { font-size: 1.4rem; font-weight: 800; color: var(--green); display: block; }
-        .metric-label { font-size: 0.6rem; color: var(--text-muted); text-transform: uppercase; }
 
         /* --- 7. ARSENAL PILL COLORS --- */
         .pill-grid { display: flex; flex-wrap: wrap; gap: 10px; }
@@ -140,6 +134,11 @@
         .pill.db { border-color: var(--cyan); color: var(--cyan); }
         .pill:hover { background: rgba(255, 255, 255, 0.1); transform: translateY(-3px); }
 
+        .metrics-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+        .metric-card { background: rgba(255,255,255,0.03); padding: 15px; border-radius: 18px; text-align: center; border: 1px solid var(--border); }
+        .metric-num { font-size: 1.4rem; font-weight: 800; color: var(--green); display: block; }
+        .metric-label { font-size: 0.6rem; color: var(--text-muted); text-transform: uppercase; }
+
         .cloud-flex { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
         .cloud-item { background: rgba(255,255,255,0.05); padding: 12px; border-radius: 12px; text-align: center; font-size: 0.75rem; font-weight: 700; border: 1px solid var(--border); }
 
@@ -150,7 +149,6 @@
             .bento-grid { grid-template-columns: 1fr; grid-template-areas: "hero" "cert" "metrics" "api" "arsenal" "ops"; }
             h1 { font-size: 2.2rem; }
         }
-
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
@@ -160,10 +158,10 @@
         <div class="logo">VISHAL <span>SHINDE</span></div>
         <div class="nav-right">
             <div class="header-socials">
-                <a href="#" class="social-link-hdr">LINKEDIN</a>
-                <a href="#" class="social-link-hdr">GITHUB</a>
+                <a href="https://www.linkedin.com/in/vishal-shinde-371013254/" target="_blank" class="social-link-hdr">LINKEDIN</a>
+                <a href="https://github.com/shindevishal1443" target="_blank" class="social-link-hdr">GITHUB</a>
             </div>
-            <a href="#" class="contact-btn">Connect Me</a>
+            <a href="mailto:shindevishal1443@gmail.com" class="contact-btn">Connect Me</a>
         </div>
     </nav>
 
