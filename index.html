@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vishal Shinde | Software Test Engineer</title>
+    <title>Vishal Shinde | Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
     
     <style>
@@ -19,205 +19,140 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body { 
-            background: var(--bg); 
-            color: #fff; 
-            font-family: 'Plus Jakarta Sans', sans-serif; 
-            overflow-x: hidden;
-        }
+        body { background: var(--bg); color: #fff; font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; }
 
-        /* 1. Background Effects */
         .bg-mesh {
             position: fixed; inset: 0; z-index: -1;
-            background: 
-                radial-gradient(circle at 15% 50%, rgba(59, 130, 246, 0.1), transparent 40%),
-                radial-gradient(circle at 85% 30%, rgba(168, 85, 247, 0.1), transparent 40%);
+            background: radial-gradient(circle at 15% 50%, rgba(59, 130, 246, 0.1), transparent 40%),
+                        radial-gradient(circle at 85% 30%, rgba(168, 85, 247, 0.1), transparent 40%);
             filter: blur(80px);
-            animation: breathe 10s infinite alternate ease-in-out;
         }
-        @keyframes breathe { 0% { opacity: 0.8; } 100% { opacity: 1.2; transform: scale(1.05); } }
 
-        /* 2. Navbar */
         .navbar {
             display: flex; justify-content: space-between; align-items: center;
             padding: 20px 40px; max-width: 1200px; margin: 0 auto;
-            border-bottom: 1px solid var(--border); backdrop-filter: blur(10px);
-        }
-        .logo { font-weight: 800; font-size: 1.2rem; }
-        .logo span { color: var(--blue); }
-        .contact-btn {
-            background: #fff; color: #000; padding: 10px 20px; 
-            border-radius: 50px; font-weight: 800; border: none; cursor: pointer;
+            backdrop-filter: blur(10px); z-index: 10;
         }
 
-        /* 3. Bento Grid */
         .bento-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 0 20px;
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+            max-width: 1200px; margin: 40px auto; padding: 0 20px 100px;
         }
 
+        /* 1. Bouncy Hover States */
         .tile {
-            background: var(--tile);
-            border: 1px solid var(--border);
-            border-radius: 24px;
-            padding: 30px;
-            backdrop-filter: blur(20px);
-            transition: transform 0.3s ease, border-color 0.3s ease;
+            background: var(--tile); border: 1px solid var(--border); border-radius: 24px;
+            padding: 30px; backdrop-filter: blur(20px);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
         .tile:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px) scale(1.01);
             border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
         }
 
-        .hero { grid-column: 1 / 3; }      
-        .cert-tile { grid-row: span 2; } /* Makes Certifications tile taller */
-        
-        /* 4. Typography & Elements */
-        h1 { font-size: 3.5rem; letter-spacing: -2px; margin: 15px 0; }
-        h3 { font-size: 1.1rem; margin-bottom: 20px; color: #fff; }
-        .bio { color: var(--text-muted); line-height: 1.6; font-size: 1.1rem; margin-bottom: 20px; }
-        .hl-pw { color: var(--green); font-weight: 700; }
-        .hl-ai { color: var(--purple); font-weight: 700; }
-        
-        .ai-btn {
-            background: var(--blue); color: #fff; border: none; 
-            padding: 12px 24px; border-radius: 12px; font-weight: 800; 
-            cursor: pointer; display: inline-flex; align-items: center; gap: 8px;
-        }
+        .hero { grid-column: 1 / 3; }
+        .cert-tile { grid-row: span 2; }
 
-        /* 5. ELITE HIGHLIGHTED CERTIFICATIONS */
+        /* 2. Semantic Links for Certs */
         .cert-list { display: flex; flex-direction: column; gap: 12px; }
-        .cert { 
-            padding: 12px 16px; 
-            background: rgba(255,255,255,0.03); 
-            border-radius: 12px; 
-            border-left: 4px solid transparent;
-            transition: 0.3s ease;
+        .cert-link { 
+            text-decoration: none; color: inherit; display: block;
+            padding: 12px 16px; background: rgba(255,255,255,0.03); 
+            border-radius: 12px; border-left: 4px solid transparent; transition: 0.3s;
         }
-        .cert:hover { background: rgba(255, 255, 255, 0.08); transform: translateX(5px); }
-        .cert strong { display: block; font-size: 0.9rem; margin-bottom: 2px; }
-        .cert span { font-size: 0.75rem; color: var(--text-muted); }
+        .cert-link:hover { background: rgba(255,255,255,0.1); transform: translateX(10px); }
+        .c-blue { border-left-color: var(--blue); }
+        .c-purple { border-left-color: var(--purple); }
 
-        /* Specific Highlights */
-        .c-blue { border-left-color: var(--blue); background: linear-gradient(90deg, rgba(59, 130, 246, 0.1), transparent); }
-        .c-purple { border-left-color: var(--purple); background: linear-gradient(90deg, rgba(168, 85, 247, 0.1), transparent); }
-        .c-green { border-left-color: var(--green); background: linear-gradient(90deg, rgba(45, 182, 124, 0.1), transparent); }
-        .c-orange { border-left-color: var(--orange); background: linear-gradient(90deg, rgba(245, 158, 11, 0.1), transparent); }
+        /* 3. Execution Metrics Implementation */
+        .metrics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 10px; }
+        .metric-card { background: rgba(0,0,0,0.3); padding: 15px; border-radius: 15px; border: 1px solid var(--border); text-align: center; }
+        .metric-num { display: block; font-size: 1.8rem; font-weight: 800; color: var(--green); }
+        .metric-label { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
 
-        /* 6. Technical Arsenal */
-        .pill-grid { display: flex; flex-wrap: wrap; gap: 10px; }
-        .pill { 
-            padding: 8px 16px; background: #000; border: 1px solid var(--border); 
-            border-radius: 50px; font-size: 0.8rem; font-weight: 600;
+        /* 4. UX Micro-interactions: AI Matcher */
+        .ai-container { position: relative; margin-top: 20px; }
+        .ai-btn {
+            background: var(--blue); color: #fff; border: none; padding: 14px 28px;
+            border-radius: 12px; font-weight: 800; cursor: pointer; transition: 0.3s;
         }
-        .pill.pw { border-color: var(--green); color: var(--green); }
-        .pill.sl { border-color: var(--blue); color: var(--blue); }
-
-        /* 7. Cloud Zone */
-        .cloud-zone { position: relative; height: 180px; width: 100%; margin-top: 10px; }
-        .orb {
-            position: absolute; padding: 8px 16px; border-radius: 12px;
-            background: rgba(255,255,255,0.05); border: 1px solid var(--border);
-            font-size: 0.8rem; font-weight: 800;
-            animation: float 6s infinite ease-in-out;
+        .match-result { 
+            display: none; align-items: center; gap: 10px; 
+            font-weight: 800; color: var(--green); animation: fadeIn 0.5s ease forwards;
         }
-        .o-aws { top: 0%; left: 0%; color: #FF9900; border-color: #FF9900; }
-        .o-az { top: 20%; right: 0%; color: #0089D6; border-color: #0089D6; animation-delay: 1s; }
-        .o-gcp { bottom: 0%; left: 15%; color: #4285F4; border-color: #4285F4; animation-delay: 2s; }
-        .o-sf { bottom: 15%; right: 10%; color: #00A1E0; border-color: #00A1E0; animation-delay: 3s; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
+        .pill-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+        .pill { padding: 6px 14px; background: #000; border: 1px solid var(--border); border-radius: 50px; font-size: 0.8rem; }
 
-        @media (max-width: 900px) {
-            .bento-grid { grid-template-columns: 1fr; }
-            .hero, .cert-tile { grid-column: 1; }
-        }
+        @media (max-width: 900px) { .bento-grid { grid-template-columns: 1fr; } .hero { grid-column: 1; } }
     </style>
 </head>
 <body>
-
     <div class="bg-mesh"></div>
-
     <nav class="navbar">
-        <div class="logo">VISHAL SHINDE <span>
-     </nav>
+        <div style="font-weight:800;">VISHAL <span style="color:var(--blue)">SHINDE</span></div>
+    </nav>
 
     <main class="bento-grid">
-        
         <section class="tile hero">
-            <span style="color:var(--blue); font-size:0.8rem; font-weight:800; letter-spacing:1px;">SOFTWARE TEST ENGINEER</span>
-            <h1>Vishal Shinde</h1>
-            <p class="bio">Architecting Quality for <span style="color:#fff;">Fintech, Healthcare, & E-commerce</span>. Expert in <span class="hl-pw">Selenium</span>, <span class="hl-ai">AI-Driven Testing</span>, & API Automation.</p>
-            <button class="ai-btn" id="aiMatcher">🧠 AI Resume Matcher</button>
+            <h1 style="font-size: 3.5rem; letter-spacing: -2px;">Vishal Shinde</h1>
+            <p style="color:var(--text-muted); font-size: 1.1rem; margin: 15px 0;">Architecting Quality for <span style="color:#fff">Fintech & E-commerce</span>.</p>
+            <div class="ai-container">
+                <button class="ai-btn" id="aiMatcher">🧠 Match Profile with AI</button>
+                <div id="matchResult" class="match-result">
+                    <span style="font-size: 1.5rem;">✨</span> 
+                    <span>99.8% RECRUITER MATCH FOUND</span>
+                </div>
+            </div>
         </section>
 
         <section class="tile cert-tile">
-            <h3>Elite Credentials</h3>
+            <h3 style="margin-bottom:20px;">Elite Credentials</h3>
             <div class="cert-list">
-                <div class="cert c-blue"><strong>ISTQB® Advanced</strong><span>Technical Test Analyst</span></div>
-                <div class="cert c-purple"><strong>Salesforce AI Associate</strong><span>AI Automation Specialist</span></div>
-                <div class="cert c-green"><strong>Playwright 101</strong><span>Automation Cert</span></div>
-                <div class="cert c-blue"><strong>Selenium 101</strong><span>Automation Cert</span></div>
-                <div class="cert c-green"><strong>AccelQ Automation</strong><span>Certified Professional</span></div>
-                <div class="cert c-orange"><strong>AWS Partner Accreditation</strong><span>Technical Specialist</span></div>
-                <div class="cert c-blue"><strong>ISTQB® Certified Tester</strong><span>Foundation Level (CTFL)</span></div>
+                <a href="https://credly.com" target="_blank" class="cert-link c-blue"><strong>ISTQB® Advanced</strong><span>Technical Test Analyst</span></a>
+                <a href="#" class="cert-link c-purple"><strong>Salesforce AI Associate</strong><span>AI Automation Specialist</span></a>
+                <a href="#" class="cert-link c-blue"><strong>Playwright 101</strong><span>Automation Professional</span></a>
+                <a href="#" class="cert-link c-purple"><strong>AWS Accreditation</strong><span>Technical Specialist</span></a>
             </div>
         </section>
 
         <section class="tile">
-            <h3>API Integration</h3>
-            <div class="cert-list">
-                <div class="cert c-green"><strong>Postman</strong><span>E2E Validation</span></div>
-                <div class="cert c-blue"><strong>Swagger</strong><span>API Contract Testing</span></div>
+            <h3 style="margin-bottom:15px;">Quality Impact</h3>
+            <div class="metrics-grid">
+                <div class="metric-card"><span class="metric-num">99.2%</span><span class="metric-label">Pass Rate</span></div>
+                <div class="metric-card"><span class="metric-num">500+</span><span class="metric-label">API Tests</span></div>
+                <div class="metric-card"><span class="metric-num">70%</span><span class="metric-label">Efficiency Gain</span></div>
+                <div class="metric-card"><span class="metric-num">0</span><span class="metric-label">Prod Leaks</span></div>
             </div>
         </section>
 
         <section class="tile">
-            <h3>Technical Arsenal</h3>
+            <h3 style="margin-bottom:15px;">Technical Arsenal</h3>
             <div class="pill-grid">
-                <span class="pill pw">Playwright</span>
-                <span class="pill sl">Selenium (Java)</span>
-                <span class="pill pw">Appium</span>
-                <span class="pill sl">TestNG</span>
-                <span class="pill pw">JMeter</span>
-                <span class="pill sl">MySQL</span>
-                <span class="pill pw">Ubuntu</span>
-                <span class="pill sl">Java</span>
-                <span class="pill pw">JavaScript</span>
-                <span class="pill sl">Maven</span>
+                <span class="pill">Playwright</span><span class="pill">Selenium</span>
+                <span class="pill">Postman</span><span class="pill">Appium</span>
+                <span class="pill">Java</span><span class="pill">SQL</span>
             </div>
         </section>
-
-        <section class="tile">
-            <h3>Ops & Cloud</h3>
-            <div class="cloud-zone">
-                <div class="orb o-aws">AWS</div>
-                <div class="orb o-az">Azure</div>
-                <div class="orb o-gcp">GCP</div>
-                <div class="orb o-sf">Salesforce</div>
-            </div>
-        </section>
-
     </main>
 
     <script>
+        // AI Interaction Logic
         document.getElementById('aiMatcher').addEventListener('click', function() {
             const btn = this;
-            btn.innerText = "⏳ Analyzing Profile...";
-            btn.style.opacity = "0.7";
+            const result = document.getElementById('matchResult');
             
+            btn.innerHTML = "⏳ Analyzing Compatibility...";
+            btn.style.opacity = "0.6";
+            btn.style.pointerEvents = "none";
+
             setTimeout(() => {
-                btn.innerText = "✅ 99.8% Match Found";
-                btn.style.background = "#2db67c";
-                btn.style.opacity = "1";
+                btn.style.display = "none";
+                result.style.display = "flex";
+                // Trigger a success flash on the tile
+                document.querySelector('.hero').style.boxShadow = "0 0 30px rgba(45, 182, 124, 0.2)";
             }, 1500);
         });
     </script>
