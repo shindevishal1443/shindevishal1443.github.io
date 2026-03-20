@@ -35,7 +35,7 @@
         }
         @keyframes breathe { 0% { opacity: 0.7; transform: scale(1); } 100% { opacity: 1; transform: scale(1.05); } }
 
-        /* --- 3. NAVBAR & SOCIALS --- */
+        /* --- 3. NAVBAR --- */
         .navbar {
             display: flex; justify-content: space-between; align-items: center;
             padding: 12px 28px; width: calc(100% - 40px); max-width: 1100px; 
@@ -46,7 +46,6 @@
         }
         .logo { font-weight: 800; font-size: 0.95rem; letter-spacing: 1px; text-transform: uppercase; }
         .logo span { color: var(--blue); }
-        
         .nav-right { display: flex; align-items: center; gap: 15px; }
         .header-socials { display: flex; gap: 5px; border-right: 1px solid var(--border); padding-right: 15px; }
         .social-link-hdr {
@@ -54,7 +53,6 @@
             font-weight: 700; padding: 6px 12px; border-radius: 50px; transition: 0.3s;
         }
         .social-link-hdr:hover { color: #fff; background: rgba(255,255,255,0.1); }
-
         .contact-btn {
             background: #fff; color: #000; padding: 10px 24px; border-radius: 50px; 
             font-weight: 800; text-decoration: none; font-size: 0.75rem; 
@@ -73,20 +71,13 @@
                 "arsenal arsenal cert"
                 "arsenal arsenal ops";
         }
-
         .tile {
             background: var(--tile); border: 1px solid var(--border);
             border-radius: 28px; padding: 30px; backdrop-filter: blur(20px);
             opacity: 0; animation: fadeInUp 0.8s forwards;
             transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.4s ease;
-            position: relative; z-index: 1;
         }
-
-        .tile:hover { 
-            transform: translateY(-8px); 
-            border-color: rgba(255, 255, 255, 0.2);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-        }
+        .tile:hover { transform: translateY(-8px); border-color: rgba(255, 255, 255, 0.2); }
 
         .hero { grid-area: hero; animation-delay: 0.1s; }      
         .cert-tile { grid-area: cert; animation-delay: 0.2s; } 
@@ -98,57 +89,37 @@
         /* --- 5. CONTENT STYLES --- */
         h1 { font-size: 3rem; margin: 10px 0; letter-spacing: -1px; }
         h3 { font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); margin-bottom: 15px; letter-spacing: 1px; }
-
-        /* --- 6. CERTS & API (GRADIENT BACKGROUNDS) --- */
         .cert-list { display: flex; flex-direction: column; gap: 12px; }
         .cert { 
             display: flex; flex-direction: column; padding: 14px 18px; border-radius: 16px; 
             border-left: 4px solid transparent; background: rgba(255,255,255,0.03);
             transition: 0.3s ease; gap: 4px; text-decoration: none; color: inherit;
         }
-        .cert:hover { transform: translateX(5px); background: rgba(255,255,255,0.08); }
-        .cert strong { display: block; font-size: 0.85rem; }
-        .cert span { font-size: 0.7rem; color: var(--text-muted); }
-
         .c-blue { background: linear-gradient(90deg, rgba(59, 130, 246, 0.1), transparent); border-left-color: var(--blue); }
         .c-purple { background: linear-gradient(90deg, rgba(168, 85, 247, 0.1), transparent); border-left-color: var(--purple); }
         .c-green { background: linear-gradient(90deg, rgba(45, 182, 124, 0.1), transparent); border-left-color: var(--green); }
         .c-orange { background: linear-gradient(90deg, rgba(245, 158, 11, 0.1), transparent); border-left-color: var(--orange); }
 
-        /* --- 7. ARSENAL PILL COLORS --- */
         .pill-grid { display: flex; flex-wrap: wrap; gap: 10px; }
-        .pill { 
-            padding: 8px 18px; 
-            background: rgba(255, 255, 255, 0.03); 
-            border: 1px solid var(--border); 
-            border-radius: 50px; 
-            font-size: 0.75rem; 
-            font-weight: 700; 
-            transition: all 0.3s ease;
-        }
+        .pill { padding: 8px 18px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border); border-radius: 50px; font-size: 0.75rem; font-weight: 700; transition: 0.3s; }
         .pill.pw { border-color: var(--green); color: var(--green); }
         .pill.sl { border-color: var(--blue); color: var(--blue); }
         .pill.jv { border-color: var(--orange); color: var(--orange); }
-        .pill.ap { border-color: var(--purple); color: var(--purple); }
         .pill.api { border-color: var(--red); color: var(--red); }
-        .pill.db { border-color: var(--cyan); color: var(--cyan); }
-        .pill:hover { background: rgba(255, 255, 255, 0.1); transform: translateY(-3px); }
 
         .metrics-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
         .metric-card { background: rgba(255,255,255,0.03); padding: 15px; border-radius: 18px; text-align: center; border: 1px solid var(--border); }
         .metric-num { font-size: 1.4rem; font-weight: 800; color: var(--green); display: block; }
         .metric-label { font-size: 0.6rem; color: var(--text-muted); text-transform: uppercase; }
 
-        .cloud-flex { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
-        .cloud-item { background: rgba(255,255,255,0.05); padding: 12px; border-radius: 12px; text-align: center; font-size: 0.75rem; font-weight: 700; border: 1px solid var(--border); }
+        /* --- 6. COPYRIGHT FOOTER --- */
+        .footer {
+            max-width: 1100px; margin: 60px auto 40px auto; padding: 20px;
+            text-align: center; border-top: 1px solid var(--border);
+            color: var(--text-muted); font-size: 0.75rem; letter-spacing: 0.5px;
+        }
+        .footer span { color: #fff; font-weight: 600; }
 
-        @media (max-width: 1000px) {
-            .bento-grid { grid-template-columns: repeat(2, 1fr); grid-template-areas: "hero hero" "cert cert" "metrics api" "arsenal arsenal" "ops ops"; }
-        }
-        @media (max-width: 650px) {
-            .bento-grid { grid-template-columns: 1fr; grid-template-areas: "hero" "cert" "metrics" "api" "arsenal" "ops"; }
-            h1 { font-size: 2.2rem; }
-        }
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
@@ -207,7 +178,6 @@
             <div class="pill-grid">
                 <span class="pill pw">Playwright</span>
                 <span class="pill sl">Selenium</span>
-                <span class="pill ap">Appium</span>
                 <span class="pill jv">Java</span>
                 <span class="pill api">REST Assured</span>
                 <span class="pill sl">JMeter</span>
@@ -218,13 +188,18 @@
 
         <section class="tile ops-tile">
             <h3>Ops & Cloud</h3>
-            <div class="cloud-flex">
-                <div class="cloud-item" style="color:#FF9900">AWS</div>
-                <div class="cloud-item" style="color:#0089D6">Azure</div>
-                <div class="cloud-item" style="color:#4285F4">GCP</div>
-                <div class="cloud-item" style="color:#00A1E0">SFDC</div>
+            <div class="metrics-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;">
+                <div class="metric-card" style="color: #FF9900;">AWS</div>
+                <div class="metric-card" style="color: #0089D6;">Azure</div>
+                <div class="metric-card" style="color: #4285F4;">GCP</div>
+                <div class="metric-card" style="color: #00A1E0;">SFDC</div>
             </div>
         </section>
     </main>
+
+    <footer class="footer">
+        &copy; 2026 <span>Vishal Shinde</span>. All Rights Reserved. <br>
+        Designed & Developed with Precision.
+    </footer>
 </body>
 </html>
