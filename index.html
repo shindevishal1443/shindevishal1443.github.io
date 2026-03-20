@@ -41,12 +41,12 @@
         }
         @keyframes breathe { 0% { opacity: 0.7; transform: scale(1); } 100% { opacity: 1; transform: scale(1.05); } }
 
-        /* --- ALIGNED PILL NAVBAR --- */
+        /* --- FIXED NAVBAR --- */
         .navbar {
             display: flex; justify-content: space-between; align-items: center;
             padding: 12px 30px; 
-            width: 95%;
-            max-width: 1200px; /* SYNCED WITH GRID */
+            width: calc(100% - 40px);
+            max-width: 1200px;
             margin: 20px auto;
             border: 1px solid var(--border); border-radius: 100px;
             backdrop-filter: blur(20px); background: rgba(255,255,255,0.03);
@@ -69,19 +69,26 @@
         .contact-btn {
             background: #fff; color: #000; padding: 8px 20px; 
             border-radius: 50px; font-weight: 800; text-decoration: none;
-            font-size: 0.8rem; transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            font-size: 0.8rem; transition: 0.3s;
         }
         .contact-btn:hover { background: var(--blue); color: #fff; transform: scale(1.05); }
 
-        /* --- BENTO GRID SYSTEM --- */
+        /* --- BENTO GRID SYSTEM (FIXED ALIGNMENT) --- */
         .bento-grid {
             display: grid; 
             grid-template-columns: repeat(3, 1fr); 
-            grid-auto-rows: minmax(140px, auto);
+            grid-auto-rows: auto;
             gap: 20px;
             max-width: 1200px; 
-            margin: 40px auto; 
+            margin: 0 auto 40px; 
             padding: 0 20px;
+            /* Explicitly define areas to prevent gaps and overlap */
+            grid-template-areas: 
+                "hero hero cert"
+                "hero hero cert"
+                "metrics api cert"
+                "arsenal arsenal cert"
+                "arsenal arsenal ops";
         }
 
         .tile {
@@ -89,20 +96,21 @@
             border-radius: 28px; padding: 30px; backdrop-filter: blur(20px);
             transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
             opacity: 0; animation: fadeInUp 0.8s forwards;
+            display: flex; flex-direction: column;
         }
         .tile:hover {
-            transform: translateY(-8px) scale(1.01);
+            transform: translateY(-8px);
             border-color: rgba(255, 255, 255, 0.2);
             box-shadow: 0 20px 40px rgba(0,0,0,0.4);
         }
 
-        /* DESKTOP GRID MAPPING */
-        .hero { grid-column: 1 / 3; grid-row: span 2; animation-delay: 0.1s; }      
-        .cert-tile { grid-column: 3 / 4; grid-row: 1 / 5; animation-delay: 0.2s; } 
-        .metrics-tile { grid-column: 1 / 2; animation-delay: 0.3s; }
-        .api-tile { grid-column: 2 / 3; }
-        .arsenal-tile { grid-column: 1 / 3; animation-delay: 0.5s; }
-        .ops-tile { grid-column: 3 / 4; margin-top: 20px; }
+        /* GRID AREA ASSIGNMENTS */
+        .hero { grid-area: hero; animation-delay: 0.1s; }      
+        .cert-tile { grid-area: cert; animation-delay: 0.2s; } 
+        .metrics-tile { grid-area: metrics; animation-delay: 0.3s; }
+        .api-tile { grid-area: api; animation-delay: 0.4s; }
+        .arsenal-tile { grid-area: arsenal; animation-delay: 0.5s; }
+        .ops-tile { grid-area: ops; animation-delay: 0.6s; }
 
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(30px) scale(0.95); }
@@ -119,63 +127,47 @@
         .ai-btn {
             background: var(--blue); color: #fff; border: none; 
             padding: 14px 28px; border-radius: 14px; font-weight: 800; 
-            cursor: pointer; display: inline-flex; align-items: center; gap: 10px;
-            transition: 0.3s; box-shadow: 0 10px 20px rgba(59, 130, 246, 0.2);
+            cursor: pointer; display: inline-flex; align-items: center; gap: 10px; width: fit-content;
         }
-        .ai-btn:hover { transform: translateY(-2px); box-shadow: 0 15px 25px rgba(59, 130, 246, 0.3); }
 
-        /* --- COMPONENTS (FIXED OVERLAP) --- */
+        /* --- CERTIFICATE LIST (FIXED OVERLAP) --- */
         .cert-list { display: flex; flex-direction: column; gap: 12px; }
         .cert { 
             text-decoration: none; color: inherit; 
-            display: flex; flex-direction: column; /* FIXED: Vertical stacking */
+            display: flex; flex-direction: column; /* Vertical stack prevents horizontal overlap */
             padding: 14px 18px; border-radius: 16px; border-left: 4px solid transparent;
-            transition: 0.3s ease; gap: 4px;
+            background: rgba(255,255,255,0.02); transition: 0.3s;
         }
-        .cert:hover { transform: translateX(8px); }
-        .cert strong { display: block; font-size: 0.9rem; }
+        .cert:hover { transform: translateX(8px); background: rgba(255,255,255,0.05); }
+        .cert strong { display: block; font-size: 0.9rem; margin-bottom: 2px; }
         .cert span { font-size: 0.75rem; color: var(--text-muted); }
 
-        .c-blue { background: linear-gradient(90deg, rgba(59, 130, 246, 0.1), transparent); border-left-color: var(--blue); }
-        .c-purple { background: linear-gradient(90deg, rgba(168, 85, 247, 0.1), transparent); border-left-color: var(--purple); }
-        .c-green { background: linear-gradient(90deg, rgba(45, 182, 124, 0.1), transparent); border-left-color: var(--green); }
-        .c-orange { background: linear-gradient(90deg, rgba(245, 158, 11, 0.1), transparent); border-left-color: var(--orange); }
+        .c-blue { border-left-color: var(--blue); }
+        .c-purple { border-left-color: var(--purple); }
+        .c-green { border-left-color: var(--green); }
+        .c-orange { border-left-color: var(--orange); }
 
-        .cloud-flex { display: flex; flex-wrap: wrap; gap: 10px; }
+        /* --- CLOUD & PILLS --- */
+        .cloud-flex { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
         .cloud-item {
-            flex: 1 1 calc(50% - 10px); background: rgba(255,255,255,0.03);
-            border: 1px solid var(--border); padding: 15px; border-radius: 16px;
-            text-align: center; font-weight: 800; font-size: 0.8rem; transition: 0.3s;
+            background: rgba(255,255,255,0.03); border: 1px solid var(--border);
+            padding: 15px; border-radius: 16px; text-align: center; font-weight: 800; font-size: 0.8rem;
         }
-        .cloud-item:hover { background: rgba(255,255,255,0.08); border-color: var(--text-muted); }
-        .o-aws { color: #FF9900; } .o-az { color: #0089D6; }
-        .o-gcp { color: #4285F4; } .o-sf { color: #00A1E0; }
-
         .metrics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
         .metric-card { background: rgba(255,255,255,0.03); padding: 15px; border-radius: 18px; border: 1px solid var(--border); text-align: center; }
         .metric-num { display: block; font-size: 1.6rem; font-weight: 800; color: var(--green); }
-        .metric-label { font-size: 0.6rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+        .metric-label { font-size: 0.6rem; color: var(--text-muted); text-transform: uppercase; }
 
         .pill-grid { display: flex; flex-wrap: wrap; gap: 10px; }
-        .pill { padding: 10px 20px; background: #000; border: 1px solid var(--border); border-radius: 50px; font-size: 0.8rem; font-weight: 600; transition: 0.3s; }
-        .pill:hover { background: #fff; color: #000; }
-
-        /* --- FOOTER --- */
-        footer {
-            max-width: 1200px; margin: 60px auto 40px; padding: 30px 20px;
-            border-top: 1px solid var(--border); text-align: center;
-            opacity: 0; animation: fadeInUp 1s ease forwards; animation-delay: 0.8s;
-        }
-        .status-indicator { display: inline-flex; align-items: center; gap: 8px; font-size: 0.8rem; color: var(--green); font-weight: 700; margin-bottom: 10px; }
-        .status-dot { width: 8px; height: 8px; background-color: var(--green); border-radius: 50%; box-shadow: 0 0 10px var(--green); animation: pulse 2s infinite; }
-        @keyframes pulse { 0%, 100% { transform: scale(0.9); opacity: 0.6; } 50% { transform: scale(1.2); opacity: 1; } }
+        .pill { padding: 8px 16px; background: #000; border: 1px solid var(--border); border-radius: 50px; font-size: 0.8rem; font-weight: 600; }
 
         /* --- MOBILE --- */
         @media (max-width: 900px) {
-            .bento-grid { grid-template-columns: 1fr; }
-            .hero, .cert-tile, .metrics-tile, .api-tile, .arsenal-tile, .ops-tile { grid-column: span 1; grid-row: auto; margin-top: 0; }
-            .header-socials { display: none; }
-            .navbar { width: 95%; }
+            .bento-grid { 
+                grid-template-columns: 1fr; 
+                grid-template-areas: "hero" "cert" "metrics" "api" "arsenal" "ops";
+            }
+            .navbar { width: 90%; }
             h1 { font-size: 2.5rem; }
         }
     </style>
@@ -186,13 +178,12 @@
 
     <nav class="navbar">
         <div class="logo">VISHAL <span>SHINDE</span></div>
-        
         <div class="nav-right">
             <div class="header-socials">
-                <a href="https://linkedin.com/in/yourusername" target="_blank" class="social-link-hdr">LINKEDIN</a>
-                <a href="https://github.com/yourusername" target="_blank" class="social-link-hdr">GITHUB</a>
+                <a href="#" class="social-link-hdr">LINKEDIN</a>
+                <a href="#" class="social-link-hdr">GITHUB</a>
             </div>
-            <a href="mailto:your.email@example.com" class="contact-btn">Connect Me</a>
+            <a href="mailto:contact@example.com" class="contact-btn">Connect Me</a>
         </div>
     </nav>
 
@@ -208,13 +199,13 @@
         <section class="tile cert-tile">
             <h3>Elite Credentials</h3>
             <div class="cert-list">
-                <a href="#" class="cert c-blue"><strong>ISTQB® Advanced</strong><span>Technical Test Analyst</span></a>
-                <a href="#" class="cert c-purple"><strong>Salesforce AI Associate</strong><span>AI Automation Specialist</span></a>
-                <a href="#" class="cert c-green"><strong>Playwright 101</strong><span>Automation Cert</span></a>
-                <a href="#" class="cert c-blue"><strong>Selenium 101</strong><span>Automation Cert</span></a>
-                <a href="#" class="cert c-green"><strong>AccelQ Automation</strong><span>Certified Professional</span></a>
-                <a href="#" class="cert c-orange"><strong>AWS Partner Accreditation</strong><span>Technical Specialist</span></a>
-                <a href="#" class="cert c-blue"><strong>ISTQB® Certified Tester</strong><span>Foundation Level (CTFL)</span></a>
+                <div class="cert c-blue"><strong>ISTQB® Advanced</strong><span>Technical Test Analyst</span></div>
+                <div class="cert c-purple"><strong>Salesforce AI Associate</strong><span>AI Automation Specialist</span></div>
+                <div class="cert c-green"><strong>Playwright 101</strong><span>Automation Cert</span></div>
+                <div class="cert c-blue"><strong>Selenium 101</strong><span>Automation Cert</span></div>
+                <div class="cert c-green"><strong>AccelQ Automation</strong><span>Certified Professional</span></div>
+                <div class="cert c-orange"><strong>AWS Partner</strong><span>Technical Specialist</span></div>
+                <div class="cert c-blue"><strong>ISTQB® CTFL</strong><span>Foundation Level</span></div>
             </div>
         </section>
 
@@ -232,7 +223,7 @@
             <h3>API Mastery</h3>
             <div class="cert-list">
                 <div class="cert c-green"><strong>Postman</strong><span>E2E Validation</span></div>
-                <div class="cert c-blue"><strong>Swagger</strong><span>API Contract Testing</span></div>
+                <div class="cert c-blue"><strong>Swagger</strong><span>Contract Testing</span></div>
             </div>
         </section>
 
@@ -240,15 +231,12 @@
             <h3>Technical Arsenal</h3>
             <div class="pill-grid">
                 <span class="pill">Playwright</span>
-                <span class="pill" style="border-color: var(--blue); color: var(--blue);">Selenium Java</span>
+                <span class="pill" style="color: var(--blue);">Selenium Java</span>
                 <span class="pill">Appium</span>
                 <span class="pill">TestNG</span>
-                <span class="pill" style="border-color: var(--green); color: var(--green);">JMeter</span>
+                <span class="pill" style="color: var(--green);">JMeter</span>
                 <span class="pill">MySQL</span>
-                <span class="pill">Ubuntu</span>
                 <span class="pill">Java</span>
-                <span class="pill">JavaScript</span>
-                <span class="pill">Maven</span>
                 <span class="pill">REST Assured</span>
             </div>
         </section>
@@ -264,34 +252,27 @@
         </section>
     </main>
 
-    <footer>
-        <div class="status-indicator">
-            <span class="status-dot"></span>
-            Available for QA Automation Roles
+    <footer style="text-align: center; padding: 40px; opacity: 0.6; font-size: 0.8rem;">
+        <div class="status-indicator" style="margin-bottom: 10px; color: var(--green);">
+            <span class="status-dot"></span> Available for QA Automation Roles
         </div>
-        <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 5px;">
-            © 2024 Vishal Shinde. Optimized for Performance.
-        </p>
+        © 2024 Vishal Shinde. Optimized for Performance.
     </footer>
 
     <script>
-        // AI Matcher Interaction
         document.getElementById('aiMatcher').addEventListener('click', function() {
-            const btn = this;
-            const result = document.getElementById('matchResult');
-            btn.innerHTML = "⏳ Analyzing Frameworks...";
+            this.innerHTML = "⏳ Analyzing Frameworks...";
             setTimeout(() => {
-                btn.style.display = "none";
-                result.style.display = "block";
-            }, 1200);
+                this.style.display = "none";
+                document.getElementById('matchResult').style.display = "block";
+            }, 1000);
         });
 
-        // Dynamic Border Glow
         setInterval(() => {
             const tiles = document.querySelectorAll('.tile');
             const randomTile = tiles[Math.floor(Math.random() * tiles.length)];
-            randomTile.style.borderColor = "rgba(59, 130, 246, 0.5)";
-            setTimeout(() => randomTile.style.borderColor = "var(--border)", 1500);
+            randomTile.style.borderColor = "rgba(59, 130, 246, 0.4)";
+            setTimeout(() => randomTile.style.borderColor = "var(--border)", 1000);
         }, 3000);
     </script>
 </body>
