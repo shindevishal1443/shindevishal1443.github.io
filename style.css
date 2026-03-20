@@ -1,125 +1,113 @@
-/* --- 1. VARIABLES --- */
-:root {
-    --bg: #030303;
-    --tile: rgba(18, 18, 22, 0.75);
-    --border: rgba(255, 255, 255, 0.08);
-    --blue: #3b82f6;
-    --green: #2db67c;
-    --purple: #a855f7;
-    --orange: #f59e0b;
-    --red: #ef4444;
-    --cyan: #06b6d4;
-    --text-muted: #888;
-    --mouse-x: 50%;
-    --mouse-y: 50%;
-}
-
-/* --- 2. RESET & BASE --- */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { 
-    background: var(--bg); 
-    color: #fff; 
-    font-family: 'Plus Jakarta Sans', sans-serif; 
-    overflow-x: hidden;
-    line-height: 1.5;
-    /* Prevents the grey "tap box" on mobile */
-    -webkit-tap-highlight-color: transparent; 
-}
-
-/* --- 3. BACKGROUND LAYERS (Sunk behind content) --- */
-.bg-mesh {
-    position: fixed;
-    inset: -50px;
-    z-index: -3; 
-    background: 
-        radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.15), transparent 40%),
-        radial-gradient(circle at 80% 70%, rgba(168, 85, 247, 0.15), transparent 40%),
-        radial-gradient(circle at 50% 50%, rgba(6, 182, 212, 0.1), transparent 50%);
-    background-color: var(--bg);
-    filter: blur(80px);
-    animation: nebulaMove 20s infinite alternate ease-in-out;
-    pointer-events: none;
-}
-
-.spotlight {
-    position: fixed;
-    inset: 0;
-    z-index: -2; 
-    background: radial-gradient(
-        600px circle at var(--mouse-x) var(--mouse-y), 
-        rgba(59, 130, 246, 0.08), 
-        transparent 80%
-    );
-    pointer-events: none;
-}
-
-/* Subtle Grain Texture Overlay */
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background-image: url("https://grains.vectorone.workers.dev/grain.png");
-    opacity: 0.04;
-    pointer-events: none;
-    z-index: -1; /* Behind content so it doesn't block taps */
-}
-
-@keyframes nebulaMove {
-    0% { transform: scale(1) translate(0, 0); }
-    50% { transform: scale(1.1) translate(2%, 2%); }
-    100% { transform: scale(1) translate(-1%, 1%); }
-}
-
-/* --- 4. NAVBAR --- */
-.navbar {
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 12px 28px; width: calc(100% - 40px); max-width: 1100px; 
-    margin: 20px auto; border: 1px solid var(--border); border-radius: 100px;
-    backdrop-filter: blur(20px); background: rgba(255,255,255,0.03);
-    position: sticky; top: 20px; 
-    z-index: 9999; /* Forces Navbar to be the "top-most" layer */
-}
-
-.contact-btn {
-    background: #fff; color: #000 !important; padding: 10px 24px; border-radius: 50px; 
-    font-weight: 800; text-decoration: none; font-size: 0.75rem; 
-    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-    position: relative;
-    display: inline-block;
-    cursor: pointer; /* Ensures mobile knows it's clickable */
-}
-
-.contact-btn:hover { 
-    background: var(--blue); 
-    color: #fff !important; 
-    transform: translateY(-2px); 
-    box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3); 
-}
-
-/* --- 5. BENTO GRID --- */
-.bento-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
-    max-width: 1100px; margin: 40px auto; padding: 0 20px;
-    grid-template-areas: 
-        "hero hero cert"
-        "hero hero cert"
-        "metrics api cert"
-        "arsenal arsenal cert"
-        "arsenal arsenal ops";
-}
-.tile {
-    background: var(--tile); border: 1px solid var(--border);
-    border-radius: 28px; padding: 30px; backdrop-filter: blur(20px);
-    transition: 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-    position: relative;
-    z-index: 10;
-}
-.tile:hover { 
-    transform: translateY(-8px); 
-    border-color: rgba(255,255,255,0.2); 
-    background: rgba(255,255,255,0.04); 
-}
-
 /* --- 6. TEXT STYLING --- */
-h1 { font-size: 3.5rem; margin: 10px 0; letter-spacing: -2px; line-height: 1.1; }
-h
+h1 { 
+    font-size: 3.5rem; 
+    margin: 10px 0; 
+    letter-spacing: -2px; 
+    line-height: 1.1; 
+    font-weight: 800;
+}
+
+h3 { 
+    font-size: 0.75rem; 
+    text-transform: uppercase; 
+    color: var(--text-muted); 
+    margin-bottom: 20px; 
+    letter-spacing: 2px; 
+    font-weight: 600;
+}
+
+p {
+    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* --- 7. GLOSSIFIED OPS & CLOUD SECTION --- */
+.ops-tile {
+    /* Stronger glass effect for the specific tile */
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01));
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.ops-tile .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+/* The "Glosify" Card Effect */
+.ops-tile .metric-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 15px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle gloss shine overlay */
+.ops-tile .metric-card::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent,
+        rgba(255, 255, 255, 0.03),
+        transparent
+    );
+    transform: rotate(45deg);
+    transition: 0.6s;
+}
+
+.ops-tile .metric-card:hover::after {
+    left: 100%;
+}
+
+.ops-tile .metric-card:hover {
+    background: rgba(255, 255, 255, 0.07);
+    transform: translateY(-4px) scale(1.02);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+}
+
+/* Cloud Branding Colors with Glow */
+.cloud-aws { color: #FF9900; text-shadow: 0 0 15px rgba(255, 153, 0, 0.2); }
+.cloud-azure { color: #0089D6; text-shadow: 0 0 15px rgba(0, 137, 214, 0.2); }
+.cloud-gcp { color: #4285F4; text-shadow: 0 0 15px rgba(66, 133, 244, 0.2); }
+.cloud-sf { color: #00A1E0; text-shadow: 0 0 15px rgba(0, 161, 224, 0.2); }
+
+/* --- 8. RESPONSIVE UPDATES --- */
+@media (max-width: 1000px) {
+    .bento-grid { 
+        grid-template-columns: repeat(2, 1fr); 
+        grid-template-areas: 
+            "hero hero" 
+            "cert cert" 
+            "metrics api" 
+            "arsenal arsenal" 
+            "ops ops"; 
+    }
+    h1 { font-size: 3rem; }
+}
+
+@media (max-width: 650px) {
+    .bento-grid { 
+        grid-template-columns: 1fr; 
+        grid-template-areas: "hero" "cert" "metrics" "api" "arsenal" "ops"; 
+    }
+    h1 { font-size: 2.2rem; }
+    .navbar { padding: 10px 15px; width: calc(100% - 20px); }
+    .contact-btn { padding: 14px 22px; font-size: 0.85rem; }
+    .tile { padding: 20px; }
+}
